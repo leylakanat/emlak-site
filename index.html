@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EstateBridge | Profesyonel Gayrimenkul Danışmanlığı</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#dae2ff",
+                    "primary-fixed": "#d2e4ff",
+                    "primary-container": "#15406a",
+                    "surface-container-low": "#f0f3ff",
+                    "on-secondary-fixed-variant": "#003fa3",
+                    "inverse-on-surface": "#ecf1ff",
+                    "on-tertiary-fixed": "#161c22",
+                    "background": "#f9f9ff",
+                    "on-primary-fixed": "#001c37",
+                    "outline-variant": "#c3c6d0",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#87acdc",
+                    "tertiary-fixed": "#dde3eb",
+                    "tertiary-fixed-dim": "#c1c7cf",
+                    "surface": "#f9f9ff",
+                    "surface-container-highest": "#d8e3fb",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9ff",
+                    "inverse-primary": "#a4c9fb",
+                    "on-secondary-fixed": "#001849",
+                    "on-primary-fixed-variant": "#204873",
+                    "outline": "#73777f",
+                    "error-container": "#ffdad6",
+                    "primary": "#002a4d",
+                    "primary-fixed-dim": "#a4c9fb",
+                    "on-surface-variant": "#42474e",
+                    "tertiary": "#23292f",
+                    "surface-dim": "#cfdaf2",
+                    "secondary": "#0053cf",
+                    "on-background": "#111c2d",
+                    "inverse-surface": "#263143",
+                    "tertiary-container": "#393f45",
+                    "secondary-container": "#2c6cf0",
+                    "surface-container": "#e7eeff",
+                    "surface-container-high": "#dee8ff",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#41474e",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#3b608c",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#fefcff",
+                    "surface-variant": "#d8e3fb",
+                    "on-surface": "#111c2d",
+                    "on-tertiary-container": "#a4aab2",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#b2c5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "container-max": "1200px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Atkinson Hyperlegible Next"],
+                    "label-md": ["Atkinson Hyperlegible Next"],
+                    "body-md": ["Atkinson Hyperlegible Next"],
+                    "headline-lg": ["Atkinson Hyperlegible Next"],
+                    "headline-lg-mobile": ["Atkinson Hyperlegible Next"],
+                    "headline-md": ["Atkinson Hyperlegible Next"]
+            },
+            "fontSize": {
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["16px", {"lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "body-md": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Atkinson Hyperlegible Next', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .listing-card {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .listing-card:hover {
+            transform: translateY(-4px);
+            border-color: #0053cf;
+        }
+        .hero-portrait-wrap {
+            background: #ffffff;
+            border: 2px solid #0053cf;
+            border-radius: 0.5rem;
+            box-shadow: 0 18px 45px rgba(17, 28, 45, 0.12);
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 380px;
+            overflow: hidden;
+            padding: 10px;
+            width: min(100%, 380px);
+        }
+        .hero-portrait-wrap img {
+            aspect-ratio: 4 / 5;
+            border-radius: 0.375rem;
+            height: auto;
+            opacity: 0;
+            object-fit: cover;
+            object-position: center 45%;
+            transition: opacity 180ms ease;
+            width: 100%;
+        }
+        .hero-portrait-wrap img.is-loaded {
+            opacity: 1;
+        }
+        .hero-agent-card {
+            align-items: center;
+            background: #ffffff;
+            border-top: 1px solid #c3c6d0;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 16px 4px;
+        }
+        .hero-agent-card strong {
+            color: #002a4d;
+            display: block;
+            font-size: 18px;
+            line-height: 1.25;
+        }
+        .hero-agent-card span {
+            color: #42474e;
+            display: block;
+            font-size: 14px;
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+        .hero-agent-badge {
+            background: #dae2ff;
+            border-radius: 999px;
+            color: #003fa3;
+            flex: 0 0 auto;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 10px;
+        }
+        [data-site-setting="eyebrow"] {
+            min-height: 32px;
+        }
+        [data-site-setting="heroTitle"] {
+            min-height: 130px;
+        }
+        [data-site-setting="heroSubtitle"] {
+            min-height: 96px;
+        }
+        [data-site-setting="primaryButton"],
+        [data-site-setting="secondaryButton"] {
+            min-width: 140px;
+        }
+        .hero-agent-card {
+            min-height: 72px;
+        }
+        @media (max-width: 767px) {
+            .site-nav-inner {
+                gap: 12px;
+                padding-bottom: 14px;
+                padding-top: 14px;
+            }
+            .brand-lockup {
+                min-width: 0;
+            }
+            .brand-lockup img {
+                height: 32px;
+                width: 32px;
+            }
+            .brand-lockup span {
+                font-size: clamp(22px, 7vw, 30px);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .nav-call-button {
+                border-radius: 0.75rem;
+                flex: 0 0 52px;
+                height: 52px;
+                padding: 0;
+                width: 52px;
+            }
+            .nav-call-button::before {
+                content: "call";
+                font-family: "Material Symbols Outlined";
+                font-size: 24px;
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .nav-call-button .nav-call-label {
+                clip: rect(0 0 0 0);
+                clip-path: inset(50%);
+                height: 1px;
+                overflow: hidden;
+                position: absolute;
+                white-space: nowrap;
+                width: 1px;
+            }
+            [data-site-setting="heroTitle"] {
+                min-height: 210px;
+            }
+            [data-site-setting="heroSubtitle"] {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar -->
+<nav class="w-full top-0 sticky z-50 bg-surface-container-lowest border-b border-outline-variant">
+<div class="site-nav-inner flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="brand-lockup flex items-center gap-4">
+<img alt="EstateBridge Logo" class="h-10 w-10 object-contain" src="assets/logo.svg"/>
+<span class="text-headline-md font-headline-md text-primary">EstateBridge</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-body-md transition-colors" data-nav-link="home" href="index.html">Ana Sayfa</a>
+<a class="text-body-md transition-colors" data-nav-link="listings" href="listings.html">İlanlar</a>
+<a class="text-body-md transition-colors" data-nav-link="about" href="#about">Hakkımda</a>
+<a class="text-body-md transition-colors" data-nav-link="contact" href="contact.html">İletişim</a>
+</div>
+<a class="nav-call-button bg-primary text-on-primary px-6 py-3 rounded-full font-label-md hover:bg-primary-container transition-all active:opacity-80 inline-flex items-center justify-center" data-call-link href="#" aria-label="Hemen ara">
+                <span class="nav-call-label">Hemen Ara</span>
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden bg-surface-container-low min-h-[70vh] flex items-center">
+<div class="absolute inset-0 z-0">
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-20 w-full py-20 grid md:grid-cols-2 items-center gap-12">
+<div class="max-w-2xl">
+<span class="inline-block bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1 rounded-full text-label-md mb-6" data-site-setting="eyebrow"></span>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary mb-6" data-site-setting="heroTitle"></h1>
+<p class="text-body-lg text-on-surface-variant mb-10 max-w-xl" data-site-setting="heroSubtitle"></p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2" href="listings.html"><span class="material-symbols-outlined">explore</span><span data-site-setting="primaryButton"></span></a>
+<a class="bg-surface-container-highest text-primary px-8 py-4 rounded-full font-label-md text-lg hover:bg-surface-variant transition-all flex items-center justify-center gap-2 border border-outline-variant" href="contact.html" data-site-setting="secondaryButton"></a>
+</div>
+</div><div class="hero-portrait-wrap">
+<img class="w-full object-cover rounded-xl" data-site-setting-image="heroImage" alt="" width="360" height="450" decoding="async" fetchpriority="high"/>
+<div class="hero-agent-card">
+<div>
+<strong data-site-setting="agentName"></strong>
+<span data-site-setting="agentTitle"></span>
+</div>
+<div class="hero-agent-badge">Danışman</div>
+</div>
+</div>
+</div>
+</header>
+<!-- About Me Section - Asymmetric Layout -->
+<section class="scroll-mt-24 py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="about">
+<div class="flex flex-col md:flex-row items-center gap-16">
+<div class="w-full max-w-3xl mx-auto"><h2 class="text-headline-md font-headline-md text-primary mb-6" data-site-setting="aboutTitle"></h2><p class="text-body-lg text-on-surface-variant mb-6" data-site-setting="aboutParagraph1"></p><p class="text-body-md text-on-surface-variant mb-8" data-site-setting="aboutParagraph2"></p><div class="grid grid-cols-2 gap-8 py-8 border-y border-outline-variant"><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat1Value"></div><div class="text-label-md text-on-surface" data-site-setting="stat1Label"></div></div><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat2Value"></div><div class="text-label-md text-on-surface" data-site-setting="stat2Label"></div></div></div></div>
+</div>
+</section>
+<!-- Featured Listings Section - Bento Grid style inspired -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary mb-2" data-site-setting="featuredTitle"></h2>
+<p class="text-body-md text-on-surface-variant" data-site-setting="featuredSubtitle"></p>
+</div>
+<a class="hidden md:flex items-center gap-2 text-secondary font-label-md hover:underline" href="listings.html">
+                    <span data-site-setting="featuredButton"></span> <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" id="featured-listings"></div>
+</div>
+</section>
+<!-- Call to Action Section -->
+<section class="py-24 bg-primary text-on-primary overflow-hidden relative" id="contact">
+<div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]">house</span>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg mb-8">Gayrimenkul Yolculuğunuza Bugün Başlayın</h2>
+<p class="text-body-lg mb-12 max-w-2xl mx-auto opacity-90">
+                Doğru fiyatlandırma ve profesyonel pazarlama stratejileri ile mülkünüzü en kısa sürede değerlendirelim.
+            </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<a class="bg-on-primary text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-primary-fixed transition-all shadow-xl" href="contact.html">
+                    Benimle İletişime Geçin
+                </a>
+<a class="bg-transparent border-2 border-on-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-on-primary hover:text-primary transition-all" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">
+                    WhatsApp'tan Yazın
+                </a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-surface-container border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<img alt="EstateBridge Logo" class="h-8 w-8 object-contain" src="assets/logo.svg"/>
+<span class="text-headline-md font-headline-md text-primary">EstateBridge</span>
+</div>
+<p class="text-body-md text-on-surface-variant max-w-md"></p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Google Maps'te konumu aç">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram profilini aç">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-call-link href="#">
+<span class="material-symbols-outlined">call</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions: Intersection Observer for fade-in effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.listing-card').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+
+        // Simple smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script src="script.js?v=3"></script>
+</body></html>

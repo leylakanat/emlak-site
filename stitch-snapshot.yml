@@ -1,0 +1,25 @@
+- main [ref=e5]:
+  - iframe [active] [ref=e7]:
+    - main [ref=f1e5]:
+      - generic [ref=f1e8]:
+        - generic:
+          - generic [ref=f1e10]
+          - generic [ref=f1e25]
+        - generic [ref=f1e48]:
+          - generic [ref=f1e49]
+          - button [ref=f1e66] [cursor=pointer]
+          - generic [ref=f1e71]
+          - button [ref=f1e78] [cursor=pointer]
+          - button [ref=f1e86] [cursor=pointer]
+        - generic [ref=f1e90]:
+          - img [ref=f1e542]
+          - button "21%" [ref=f1e544] [cursor=pointer]
+          - button "Faydalı Bağlantılar" [ref=f1e99] [cursor=pointer]
+        - button "Choose File" [ref=f1e103]
+        - application [ref=f1e105]:
+          - generic [ref=f1e107]
+          - img
+          - img
+          - generic [ref=f1e422]
+          - button [ref=f1e487] [cursor=pointer]
+          - generic [ref=f1e499]

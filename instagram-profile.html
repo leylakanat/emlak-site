@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leyla Kanat — Gayrimenkul Danışmanı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #15406A;
+      --primary-deep: #001c37;
+      --secondary: #407BFF;
+      --secondary-light: #89a8ff;
+      --neutral: #1E293B;
+      --text-primary: #ffffff;
+      --text-muted: #a4c9fb;
+      --card-bg: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(164, 201, 251, 0.15);
+      --gold: #F5C842;
+      --gold-dim: rgba(245, 200, 66, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+      background: var(--primary-deep);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(64, 123, 255, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(21, 64, 106, 0.6) 0%, transparent 60%),
+        linear-gradient(180deg, #001c37 0%, #0a1628 50%, #050e1d 100%);
+      z-index: -1;
+    }
+
+    /* Subtle animated orb */
+    body::after {
+      content: '';
+      position: fixed;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(64, 123, 255, 0.12) 0%, transparent 70%);
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      animation: orbPulse 8s ease-in-out infinite;
+    }
+
+    @keyframes orbPulse {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+      50% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+    }
+
+    /* Top nav */
+    .nav {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px 0;
+      opacity: 0;
+      animation: fadeDown 0.6s ease forwards 0.1s;
+    }
+
+    .nav-brand {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover {
+      background: #5d8bff;
+      transform: scale(1.03);
+    }
+
+    .nav-cta .material-icons-round {
+      font-size: 16px;
+    }
+
+    /* Main card */
+    .card {
+      width: 100%;
+      max-width: 480px;
+      padding: 0 20px 40px;
+    }
+
+    /* Profile section */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 36px 0 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--secondary), #89a8ff, var(--gold));
+      z-index: 0;
+      animation: ringRotate 6s linear infinite;
+    }
+
+    @keyframes ringRotate {
+      from { filter: hue-rotate(0deg); }
+      to { filter: hue-rotate(360deg); }
+    }
+
+    .avatar-inner {
+      position: relative;
+      z-index: 1;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-deep);
+      background: linear-gradient(135deg, #204873 0%, #001c37 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar-inner .material-icons-round {
+      font-size: 52px;
+      color: var(--secondary-light);
+      opacity: 0.7;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .profile-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .profile-bio {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.65);
+      text-align: center;
+      max-width: 340px;
+    }
+
+    /* Verified badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245, 200, 66, 0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      padding: 5px 12px;
+      margin-top: 16px;
+    }
+
+    .badge .material-icons-round {
+      font-size: 14px;
+    }
+
+    /* Links section */
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-decoration: none;
+      color: var(--text-primary);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .link-item:nth-child(1) { animation: slideIn 0.5s ease forwards 0.45s; }
+    .link-item:nth-child(2) { animation: slideIn 0.5s ease forwards 0.55s; }
+    .link-item:nth-child(3) { animation: slideIn 0.5s ease forwards 0.65s; }
+    .link-item:nth-child(4) { animation: slideIn 0.5s ease forwards 0.75s; }
+
+    .link-item:hover {
+      background: rgba(64, 123, 255, 0.12);
+      border-color: rgba(64, 123, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(64, 123, 255, 0.15);
+    }
+
+    .link-item:active {
+      transform: translateY(0px) scale(0.98);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .link-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(64, 123, 255, 0.12);
+      border: 1px solid rgba(64, 123, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .link-item.whatsapp .link-icon-wrap {
+      background: rgba(37, 211, 102, 0.1);
+      border-color: rgba(37, 211, 102, 0.25);
+    }
+
+    .link-item.whatsapp .link-icon-wrap .material-icons-round {
+      color: #25D366;
+    }
+
+    .link-item.instagram .link-icon-wrap {
+      background: rgba(225, 48, 108, 0.1);
+      border-color: rgba(225, 48, 108, 0.25);
+    }
+
+    .link-item.instagram .link-icon-wrap .material-icons-round {
+      color: #E1306C;
+    }
+
+    .link-item.web .link-icon-wrap {
+      background: rgba(164, 201, 251, 0.08);
+      border-color: rgba(164, 201, 251, 0.2);
+    }
+
+    .link-item.web .link-icon-wrap .material-icons-round {
+      color: var(--text-muted);
+    }
+
+    .link-icon-wrap .material-icons-round {
+      font-size: 20px;
+      color: var(--secondary-light);
+    }
+
+    .link-text {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .link-sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    .link-arrow {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 18px !important;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .link-item:hover .link-arrow {
+      transform: translateX(3px);
+      color: var(--secondary-light);
+    }
+
+    /* Social row */
+    .socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.9s;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      backdrop-filter: blur(8px);
+    }
+
+    .social-btn:hover {
+      background: rgba(64, 123, 255, 0.15);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .social-btn .material-icons-round {
+      font-size: 20px;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      padding: 28px 24px 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 1.05s;
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .footer-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-muted);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.18);
+      margin-top: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(164, 201, 251, 0.2), transparent);
+      margin: 28px 0 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <span class="nav-brand">EstateBridge</span>
+    <a href="tel:+902120000000" class="nav-cta">
+      <span class="material-icons-round">call</span>
+      Hemen Arayın
+    </a>
+  </nav>
+
+  <!-- Main content -->
+  <div class="card">
+
+    <!-- Profile header -->
+    <div class="profile">
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-inner">
+          <span class="material-icons-round">person</span>
+        </div>
+      </div>
+
+      <h1 class="profile-name">Leyla Kanat</h1>
+      <p class="profile-title">Gayrimenkul Danışmanı</p>
+
+      <p class="profile-bio">
+        Her işleme taze bir enerji ve sarsılmaz bir bağlılık katıyorum. Karmaşık mülk yolculuklarını hem ev sahipleri hem de yatırımcılar için sorunsuz ve ödüllendirici deneyimlere dönüştürme konusunda uzmanım.
+      </p>
+
+      <div class="badge">
+        <span class="material-icons-round">verified</span>
+        Lisanslı Gayrimenkul Danışmanı
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="links">
+
+      <a href="#" class="link-item whatsapp">
+        <div class="link-left">
+          <div class="link-icon-wrap">
+            <span class="material-icons-round">chat</span>
+          </div>
+          <div>
+            <div class="link-text">WhatsApp İletişim</div>
+            <div class="link-sub">Hızlı mesaj gönderin</div>
+          </div>
+        </div>
+        <span class="material-icons-round link-arrow">arrow_forward</span>
+      </a>
+
+      <a href="#" class="link-item instagram">
+        <div class="link-left">
+          <div class="link-icon-wrap">
+            <span class="material-icons-round">photo_camera</span>
+          </div>
+          <div>
+            <div class="link-text">Instagram Profili</div>
+            <div class="link-sub">Son ilanlar ve içerikler</div>
+          </div>
+        </div>
+        <span class="material-icons-round link-arrow">arrow_forward</span>
+      </a>
+
+      <a href="index.html" class="link-item web">
+        <div class="link-left">
+          <div class="link-icon-wrap">
+            <span class="material-icons-round">language</span>
+          </div>
+          <div>
+            <div class="link-text">Resmi Web Sitesini Ziyaret Et</div>
+            <div class="link-sub">EstateBridge portföyü</div>
+          </div>
+        </div>
+        <span class="material-icons-round link-arrow">arrow_forward</span>
+      </a>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Social icons -->
+    <div class="socials">
+      <a href="#" class="social-btn" title="Instagram" target="_blank" rel="noopener noreferrer">
+        <span class="material-icons-round">photo_camera</span>
+      </a>
+      <a href="tel:+902120000000" class="social-btn" title="Telefon">
+        <span class="material-icons-round">call</span>
+      </a>
+      <a href="#" class="social-btn" title="Konum" target="_blank" rel="noopener noreferrer">
+        <span class="material-icons-round">location_on</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-brand">EstateBridge</div>
+    <p class="footer-desc">Modern piyasada güven, şeffaflık ve sonuç odaklı kişiselleştirilmiş gayrimenkul çözümleri.</p>
+    <div class="footer-links">
+      <a href="#">Gizlilik Politikası</a>
+      <a href="#">Kullanım Koşulları</a>
+    </div>
+    <p class="footer-copy">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+  </footer>
+
+  <script>
+    async function loadSettings() {
+      try {
+        const res = await fetch('/api/site-settings/home');
+        if (!res.ok) return;
+        const s = await res.json();
+
+        // Agent photo
+        if (s.agentPhoto) {
+          const inner = document.querySelector('.avatar-inner');
+          inner.innerHTML = `<img src="${s.agentPhoto}" alt="${s.agentName || 'Profil'}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;
+        }
+
+        // Agent name & title
+        if (s.agentName) document.querySelector('.profile-name').textContent = s.agentName;
+        if (s.agentTitle) document.querySelector('.profile-title').textContent = s.agentTitle;
+
+        // WhatsApp and call links
+        if (s.phone) {
+          const normalizedPhone = normalizePhoneForTurkey(s.phone);
+          const whatsappLink = document.querySelector('.link-item.whatsapp');
+          const callUrl = `tel:+${normalizedPhone}`;
+
+          whatsappLink.href = `https://wa.me/${normalizedPhone}`;
+          whatsappLink.target = '_blank';
+          whatsappLink.rel = 'noopener noreferrer';
+          document.querySelector('.nav-cta').href = callUrl;
+          document.querySelector('.social-btn[title="Telefon"]').href = callUrl;
+        }
+
+        // Instagram link
+        if (s.instagramHandle) {
+          const handle = s.instagramHandle.replace(/^@/, '');
+          const instagramUrl = `https://instagram.com/${encodeURIComponent(handle)}`;
+          document.querySelector('.link-item.instagram').href = instagramUrl;
+          document.querySelector('.social-btn[title="Instagram"]').href = instagramUrl;
+        }
+
+        // Google Maps link
+        if (s.mapAddress) {
+          const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapAddress)}`;
+          document.querySelector('.social-btn[title="Konum"]').href = mapUrl;
+        }
+      } catch (_) {
+        // Notion bağlantısı yoksa statik içerik kalır
+      }
+    }
+
+    function normalizePhoneForTurkey(phone) {
+      const digits = String(phone || '').replace(/\D/g, '');
+      if (digits.startsWith('90')) return digits;
+      if (digits.startsWith('0')) return `90${digits.slice(1)}`;
+      return `90${digits}`;
+    }
+
+    loadSettings();
+  </script>
+</body>
+</html>

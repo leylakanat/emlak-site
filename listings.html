@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emlak Portföyü | EstateBridge</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html">EstateBridge</a>
+      <nav class="nav-links" aria-label="Ana menü">
+        <a href="index.html">Ana Sayfa</a>
+        <a class="active" href="listings.html">İlanlar</a>
+        <a href="index.html#about">Hakkımda</a>
+        <a href="index.html#contact">İletişim</a>
+      </nav>
+      <a class="button" data-call-link href="#">Hemen Ara</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="container page-title">
+      <div class="page-title-text">
+        <h1 data-site-setting="listingsTitle"></h1>
+        <p data-site-setting="listingsSubtitle"></p>
+      </div>
+      <div class="filters" aria-label="İlan filtreleri" data-listing-filters></div>
+    </section>
+
+    <section class="container section">
+      <div class="listings-grid" id="listings-grid"></div>
+      <div class="pagination" id="listings-pagination"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html">EstateBridge</a>
+        <p class="muted" data-site-setting="footerDesc">Profesyonel gayrimenkul danışmanlığı ile mülkünüzü değerinde satın, hayalinizdeki evi güvenle bulun.</p>
+        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+      </div>
+      <div class="footer-links">
+        <a class="muted" href="#">Gizlilik Politikası</a>
+        <a class="muted" href="#">Kullanım Koşulları</a>
+        <a class="muted" href="#">Erişilebilirlik</a>
+        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
+        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
+        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

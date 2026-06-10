@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İlan Detayı | EstateBridge</title>
+  <link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html">EstateBridge</a>
+      <nav class="nav-links" aria-label="Ana menü">
+        <a href="index.html">Ana Sayfa</a>
+        <a class="active" href="listings.html">İlanlar</a>
+        <a href="index.html#about">Hakkımda</a>
+        <a href="contact.html">İletişim</a>
+      </nav>
+      <a class="button" data-call-link href="#">Hemen Ara</a>
+    </div>
+  </header>
+
+  <main class="container detail-page" id="listing-detail">
+    <a class="detail-back-link" href="listings.html">
+      <span class="material-symbols-outlined">arrow_back</span>
+      İlanlara Dön
+    </a>
+
+    <div class="detail-layout">
+      <article>
+        <div class="detail-gallery-mosaic">
+          <div class="detail-gallery-main">
+            <img data-detail-image src="" alt="" />
+            <span class="detail-badge" data-detail-status></span>
+          </div>
+          <div class="detail-thumb"></div>
+          <div class="detail-thumb"></div>
+          <div class="detail-thumb detail-thumb-last">
+            <button class="detail-gallery-all-btn" type="button">
+              <span class="material-symbols-outlined">grid_view</span>
+              Tüm Fotoğraflar
+            </button>
+          </div>
+        </div>
+
+        <section class="detail-content-card detail-heading-card">
+          <h1 class="detail-title" data-detail-title></h1>
+          <p class="detail-meta">
+            <span class="material-symbols-outlined">location_on</span>
+            <span data-detail-location></span>
+          </p>
+          <div class="detail-feature-chips">
+            <span class="detail-feature-chip">
+              <span class="material-symbols-outlined">square_foot</span>
+              <strong data-detail-area></strong>
+            </span>
+            <span class="detail-feature-chip">
+              <span class="material-symbols-outlined">bed</span>
+              <strong data-detail-rooms></strong>
+              <span>Oda</span>
+            </span>
+            <span class="detail-feature-chip">
+              <span class="material-symbols-outlined">bathtub</span>
+              <strong data-detail-bathrooms></strong>
+              <span>Banyo</span>
+            </span>
+          </div>
+        </section>
+
+        <section class="detail-content-card">
+          <h2>Mülk Özellikleri</h2>
+          <ul class="detail-check-list detail-check-list--cols" data-detail-summary></ul>
+        </section>
+
+        <section class="detail-content-card">
+          <h2>Açıklama</h2>
+          <p class="muted" data-detail-description></p>
+        </section>
+
+        <section class="detail-content-card detail-map-card">
+          <div>
+            <h2>Konum</h2>
+            <p class="muted" data-detail-location-note></p>
+          </div>
+          <a class="button secondary" data-map-link href="#" target="_blank" rel="noopener noreferrer">
+            <span class="material-symbols-outlined">map</span>
+            Haritada Aç
+          </a>
+        </section>
+      </article>
+
+      <aside class="sidebar">
+        <div class="sidebar-card detail-price-card">
+          <p class="muted">Satış Fiyatı</p>
+          <p class="price" data-detail-price></p>
+          <div class="sidebar-actions">
+            <a class="button" data-call-link href="#">
+              <span class="material-symbols-outlined">call</span>
+              Hemen Ara
+            </a>
+            <a class="button detail-btn-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">
+              WhatsApp ile Bilgi Al
+            </a>
+            <a class="button secondary" href="contact.html">
+              <span class="material-symbols-outlined">event</span>
+              Randevu Oluştur
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-card agent">
+          <div class="agent-avatar">
+            <img data-site-setting-image="agentPhoto" src="" alt="" />
+            <span>LK</span>
+          </div>
+          <div>
+            <strong data-site-setting="agentName">Leyla Kanat</strong>
+            <p class="muted" data-site-setting="agentTitle">Gayrimenkul Danışmanı</p>
+            <div class="agent-stars" aria-label="5 üzerinden 5 yıldız">
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+              <span class="material-symbols-outlined">star</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html">EstateBridge</a>
+        <p class="muted">Hayalinizdeki eve giden köprü. Profesyonel danışmanlık ve şeffaf süreç yönetimi ile emlak sektöründe güvenin adresi.</p>
+        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+      </div>
+      <div class="footer-links">
+        <a class="muted" href="#">Gizlilik Politikası</a>
+        <a class="muted" href="#">Kullanım Koşulları</a>
+        <a class="muted" href="#">Erişilebilirlik</a>
+        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
+        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
+        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.env
+.mcp.json
+mcp.json
+node_modules/
+.playwright-mcp/
+.claude/
+
+# Local screenshots and design exports
+*.png
+*.jpg
+*.jpeg
+
+# OS/editor noise
+.DS_Store
+*.log

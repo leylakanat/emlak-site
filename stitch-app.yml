@@ -1,0 +1,21 @@
+- application [ref=f8e105]:
+  - generic [ref=f8e107]:
+    - generic:
+      - generic
+  - img
+  - img
+  - generic [ref=f8e460]:
+    - textbox [ref=f8e464]:
+      - paragraph [ref=f8e465]: Ne değiştirmek veya oluşturmak istiyorsunuz?
+    - generic [ref=f8e466]:
+      - button "Choose File" [ref=f8e467]
+      - button [ref=f8e469] [cursor=pointer]
+      - button [ref=f8e474] [cursor=pointer]
+      - generic [ref=f8e477]
+  - button [ref=f8e506] [cursor=pointer]:
+    - status [ref=f8e507]:
+      - generic [ref=f8e508]
+  - generic [ref=f8e519]:
+    - button "Collapse panel" [ref=f8e520] [cursor=pointer]:
+      - img [ref=f8e521]
+    - generic [ref=f8e532]: Prototype created

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İletişim | EstateBridge</title>
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="index.html">EstateBridge</a>
+      <nav class="nav-links" aria-label="Ana menü">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="listings.html">İlanlar</a>
+        <a href="index.html#about">Hakkımda</a>
+        <a class="active" href="contact.html">İletişim</a>
+      </nav>
+      <a class="button" data-call-link href="#">Hemen Ara</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Page heading -->
+    <section class="container page-title" style="display:block; padding-bottom:0;">
+      <div class="page-title-text">
+        <h1>Bizimle İletişime Geçin</h1>
+        <p>Hayalinizdeki eve giden yolda size rehberlik etmek için buradayız. Her türlü sorunuz ve talebiniz için bize ulaşabilirsiniz.</p>
+      </div>
+    </section>
+
+    <!-- Contact section -->
+    <section class="container section" style="padding-top:40px;">
+      <div class="contact-grid">
+
+        <!-- Left: contact info -->
+        <div class="contact-info">
+          <h2><span data-site-setting="agentName"></span> İletişim Bilgileri</h2>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="material-symbols-outlined contact-icon contact-icon--primary">call</span>
+              <div>
+                <p class="contact-label">Telefon Numarası</p>
+                <a class="contact-value contact-value--accent" data-call-link data-phone-display href="#">—</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="material-symbols-outlined contact-icon contact-icon--secondary">chat</span>
+              <div>
+                <p class="contact-label">WhatsApp Hattı</p>
+                <a class="contact-value contact-value--accent" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">Hemen Mesaj Gönder</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="material-symbols-outlined contact-icon">location_on</span>
+              <div>
+                <p class="contact-label">Hizmet Bölgemiz</p>
+                <p class="contact-value" id="contact-service-area">İstanbul, Beşiktaş ve Çevresi</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-office-image">
+            <img
+              data-site-setting-image="agentPhoto"
+              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=60"
+              alt="Danışman"
+              loading="lazy"
+            />
+            <p class="contact-office-caption">Gayrimenkul yolculuğunuzda size eşlik etmekten mutluluk duyarım.</p>
+          </div>
+        </div>
+
+        <!-- Right: contact form -->
+        <div class="contact-form-wrap">
+          <h3>Bize Yazın</h3>
+          <p class="muted" style="margin-bottom:24px;">Size en kısa sürede dönüş yapacağız.</p>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contact-name">Ad Soyad</label>
+              <input
+                class="form-input"
+                id="contact-name"
+                name="name"
+                type="text"
+                placeholder="Örn: Ahmet Yılmaz"
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-phone">Telefon Numarası</label>
+              <input
+                class="form-input"
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                placeholder="05XX XXX XX XX"
+                required
+                autocomplete="tel"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contact-message">Mesajınız</label>
+              <textarea
+                class="form-input"
+                id="contact-message"
+                name="message"
+                rows="5"
+                placeholder="Size nasıl yardımcı olabiliriz?"
+                required
+              ></textarea>
+            </div>
+
+            <button class="button" type="submit" id="contact-submit">
+              Gönder
+              <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-left:4px;">send</span>
+            </button>
+
+            <p class="form-success" id="form-success" style="display:none;color:green;margin-top:16px;font-weight:600;">
+              Mesajınız iletildi. En kısa sürede dönüş yapacağız.
+            </p>
+            <p class="form-error" id="form-error" style="display:none;color:red;margin-top:16px;font-weight:600;">
+              Bir hata oluştu. Lütfen tekrar deneyin.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Service area map -->
+    <section class="container section alt" style="margin-top:0;">
+      <div class="section-title">
+        <h2>Hizmet Bölgemiz</h2>
+        <p>Uzman ekibimizle İstanbul'un seçkin semtlerinde profesyonel gayrimenkul danışmanlığı sunuyoruz.</p>
+      </div>
+
+      <div class="map-container">
+        <div class="map-placeholder" id="map-placeholder">
+          <span class="material-symbols-outlined map-icon">map</span>
+        </div>
+        <div class="map-info">
+          <h4>Merkez Ofis &amp; Odak Bölge</h4>
+          <p class="muted">İstanbul Avrupa Yakası geneli, özellikle Beşiktaş, Levent ve Nişantaşı bölgelerinde uzmanlaştık.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="index.html">EstateBridge</a>
+        <p class="muted">Profesyonel gayrimenkul danışmanlığı ile hayallerinizdeki eve giden en güvenilir yol.</p>
+        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+      </div>
+      <div class="footer-links">
+        <a class="muted" href="#">Gizlilik Politikası</a>
+        <a class="muted" href="#">Kullanım Koşulları</a>
+        <a class="muted" href="#">Erişilebilirlik</a>
+        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
+        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
+        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=3"></script>
+  <script>
+    // Contact form submit
+    document.getElementById("contact-form")?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById("contact-submit");
+      const successEl = document.getElementById("form-success");
+      const errorEl = document.getElementById("form-error");
+      successEl.style.display = "none";
+      errorEl.style.display = "none";
+      btn.disabled = true;
+      btn.textContent = "Gönderiliyor…";
+
+      try {
+        const res = await fetch("/api/leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: document.getElementById("contact-name").value,
+            phone: document.getElementById("contact-phone").value,
+            message: document.getElementById("contact-message").value,
+          }),
+        });
+        if (!res.ok) throw new Error("API error");
+        successEl.style.display = "block";
+        e.target.reset();
+      } catch {
+        errorEl.style.display = "block";
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Gönder <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-left:4px;">send</span>';
+      }
+    });
+  </script>
+</body>
+</html>
