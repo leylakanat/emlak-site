@@ -17,3 +17,7 @@ test("boş girişte 'ilan' döner", () => {
   assert.strictEqual(slugify(""), "ilan");
   assert.strictEqual(slugify("!!!"), "ilan");
 });
+
+test("büyük İ harfini doğru çevirir (U+0130)", () => {
+  assert.strictEqual(slugify("İstanbul Satılık İLAN"), "istanbul-satilik-ilan");
+});
