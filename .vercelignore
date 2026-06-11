@@ -1,0 +1,19 @@
+# Gizli bilgiler — asla deploy edilmemeli
+.env
+.env.example
+.mcp.json
+mcp.json
+.claude
+
+# Geliştirme artıkları
+.playwright-mcp
+node_modules
+*.png
+*.log
+stitch-*.yml
+
+# Tek seferlik araç script'leri (sunucuda gereksiz)
+setup-production-notion.js
+setup-site-settings.js
+migrate-images-to-cloudinary.js
+add-arsa-images.js
