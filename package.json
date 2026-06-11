@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "dev": "node lib/server.js",
+    "test": "node --test tests/"
+  },
   "dependencies": {
     "nodemailer": "^8.0.10"
   }
