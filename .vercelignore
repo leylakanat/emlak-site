@@ -17,3 +17,5 @@ setup-production-notion.js
 setup-site-settings.js
 migrate-images-to-cloudinary.js
 add-arsa-images.js
+tests
+docs
