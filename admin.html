@@ -105,7 +105,14 @@ async function api(path, options = {}) {
 
 function showLogin() { $("login-view").classList.remove("hidden"); $("panel-view").classList.add("hidden"); }
 function showPanel() { $("login-view").classList.add("hidden"); $("panel-view").classList.remove("hidden"); loadListings(); }
-function message(el, text, kind) { el.innerHTML = text ? `<div class="msg ${kind}">${text}</div>` : ""; }
+function message(el, text, kind) {
+  el.innerHTML = "";
+  if (!text) return;
+  const div = document.createElement("div");
+  div.className = `msg ${kind}`;
+  div.textContent = text;
+  el.appendChild(div);
+}
 
 $("login-btn").onclick = async () => {
   message($("login-msg"), "", "");
@@ -132,7 +139,7 @@ async function loadListings() {
     const { listings } = await api("/api/admin/listings");
     $("list-view").innerHTML = listings.map((listing) => `
       <div class="card listing">
-        ${listing.image ? `<img src="${listing.image}" alt="" />` : `<div class="noimg">foto yok</div>`}
+        ${listing.image ? `<img src="${listing.imageCard || listing.image}" alt="" />` : `<div class="noimg">foto yok</div>`}
         <div class="info">
           <b>${escapeHtml(listing.title)}</b>
           <span>${escapeHtml(listing.price || "")} · ${escapeHtml(listing.location || "")}</span><br/>
@@ -147,7 +154,8 @@ async function loadListings() {
         </div>
       </div>`).join("") || `<div class="card">Henüz ilan yok.</div>`;
   } catch (error) {
-    $("list-view").innerHTML = `<div class="card msg err">${error.message}</div>`;
+    $("list-view").innerHTML = "";
+    message($("list-view"), error.message, "err");
   }
 }
 
@@ -188,6 +196,7 @@ $("f-photos").onchange = async (event) => {
 };
 
 $("save-btn").onclick = async () => {
+  $("save-btn").disabled = true;
   message($("new-msg"), "Kaydediliyor…", "ok");
   try {
     const result = await api("/api/admin/listings", { method: "POST", body: JSON.stringify({
@@ -200,6 +209,7 @@ $("save-btn").onclick = async () => {
     uploadedUrls = []; $("photo-list").innerHTML = ""; $("f-photos").value = "";
     message($("new-msg"), `İlan kaydedildi ✓ Sitede birkaç dakika içinde görünür.`, "ok");
   } catch (error) { message($("new-msg"), error.message, "err"); }
+  finally { $("save-btn").disabled = false; }
 };
 
 function escapeHtml(value) {
