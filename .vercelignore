@@ -9,6 +9,7 @@ mcp.json
 .playwright-mcp
 node_modules
 *.png
+!assets/*.png
 *.log
 stitch-*.yml
 
