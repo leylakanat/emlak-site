@@ -9,6 +9,9 @@ node_modules/
 *.png
 *.jpg
 *.jpeg
+!assets/*.png
+!assets/*.jpg
+!assets/*.jpeg
 
 # OS/editor noise
 .DS_Store
