@@ -1,152 +1,285 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html class="light" lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İlan Detayı | EstateBridge</title>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>İlan Detayı | Likya World Gayrimenkul</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#f1e3c2",
+            "primary-fixed": "#d2e4ff",
+            "primary-container": "#15406a",
+            "surface-container-low": "#f8f9fb",
+            "on-secondary-fixed-variant": "#856a2e",
+            "inverse-on-surface": "#ecf1ff",
+            "on-tertiary-fixed": "#161c22",
+            "background": "#f9f9ff",
+            "on-primary-fixed": "#001c37",
+            "outline-variant": "#c3c6d0",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#87acdc",
+            "tertiary-fixed": "#dde3eb",
+            "tertiary-fixed-dim": "#c1c7cf",
+            "surface": "#ffffff",
+            "surface-container-highest": "#e8eaf0",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "inverse-primary": "#a4c9fb",
+            "on-secondary-fixed": "#3d3011",
+            "on-primary-fixed-variant": "#204873",
+            "outline": "#73777f",
+            "error-container": "#ffdad6",
+            "primary": "#121e31",
+            "primary-fixed-dim": "#a4c9fb",
+            "on-surface-variant": "#42474e",
+            "tertiary": "#23292f",
+            "surface-dim": "#cfdaf2",
+            "secondary": "#c4a45a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "tertiary-container": "#393f45",
+            "secondary-container": "#c4a45a",
+            "surface-container": "#f0f2f7",
+            "surface-container-high": "#e1e4ed",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#41474e",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#c4a45a",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "on-surface": "#111c2d",
+            "on-tertiary-container": "#a4aab2",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#d6bc82"
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+          spacing: { "margin-desktop": "48px", "base": "8px", "gutter": "24px", "margin-mobile": "20px", "container-max": "1200px" },
+          fontFamily: {
+            "body-lg": ["Atkinson Hyperlegible Next"], "label-md": ["Atkinson Hyperlegible Next"],
+            "body-md": ["Atkinson Hyperlegible Next"], "headline-lg": ["Atkinson Hyperlegible Next"],
+            "headline-lg-mobile": ["Atkinson Hyperlegible Next"], "headline-md": ["Atkinson Hyperlegible Next"]
+          },
+          fontSize: {
+            "body-lg": ["20px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "label-md": ["16px", {"lineHeight":"1.4","letterSpacing":"0.02em","fontWeight":"600"}],
+            "body-md": ["18px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "headline-lg": ["36px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-lg-mobile": ["28px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-md": ["24px", {"lineHeight":"1.3","fontWeight":"700"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align: middle; }
+    body { font-family: 'Atkinson Hyperlegible Next', sans-serif; -webkit-font-smoothing: antialiased; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .custom-glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); }
+    .bg-brand-navy { background-color: #121e31; }
+    .detail-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .detail-check-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .detail-check-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 16px; }
+    .detail-check-list li::before { content: "check_circle"; font-family: "Material Symbols Outlined"; font-variation-settings: 'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24; color: #c4a45a; flex-shrink: 0; line-height: 1.4; }
+    .detail-check-list--cols { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px 24px; }
+    @media (max-width: 767px) { .detail-check-list--cols { grid-template-columns: 1fr; } }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html">EstateBridge</a>
-      <nav class="nav-links" aria-label="Ana menü">
-        <a href="index.html">Ana Sayfa</a>
-        <a class="active" href="listings.html">İlanlar</a>
-        <a href="index.html#about">Hakkımda</a>
-        <a href="contact.html">İletişim</a>
-      </nav>
-      <a class="button" data-call-link href="#">Hemen Ara</a>
-    </div>
-  </header>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed">
 
-  <main class="container detail-page" id="listing-detail">
-    <a class="detail-back-link" href="listings.html">
-      <span class="material-symbols-outlined">arrow_back</span>
-      İlanlara Dön
+<!-- Nav -->
+<nav class="w-full top-0 sticky z-50 bg-brand-navy border-b border-white/10">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center">
+      <img alt="Likya World Gayrimenkul Logo" class="h-14 w-auto object-contain" src="assets/logo.png"/>
     </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html">Ana Sayfa</a>
+      <a class="text-secondary border-b-2 border-secondary font-bold text-body-md" href="listings.html">İlanlar</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html#about">Hakkımda</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="contact.html">İletişim</a>
+    </div>
+    <a class="bg-secondary text-primary px-6 py-3 rounded-full font-label-md hover:bg-white transition-all active:opacity-80 inline-flex items-center justify-center" data-call-link href="#">
+      Hemen Ara
+    </a>
+  </div>
+</nav>
 
-    <div class="detail-layout">
-      <article>
-        <div class="detail-gallery-mosaic">
-          <div class="detail-gallery-main">
-            <img data-detail-image src="" alt="" />
-            <span class="detail-badge" data-detail-status></span>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-base md:py-12" id="listing-detail">
+
+  <a class="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 text-body-md" href="listings.html">
+    <span class="material-symbols-outlined">arrow_back</span>
+    İlanlara Dön
+  </a>
+
+  <!-- Bento Gallery -->
+  <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[400px] md:h-[600px] mb-8">
+    <div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-xl border border-outline-variant detail-gallery-main">
+      <img data-detail-image src="" alt="" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+      <div class="absolute top-4 left-4 bg-secondary text-primary px-3 py-1 rounded-full text-label-md font-bold" data-detail-status></div>
+    </div>
+    <div class="hidden md:block relative overflow-hidden rounded-xl border border-outline-variant detail-thumb bg-surface-container"></div>
+    <div class="hidden md:block relative overflow-hidden rounded-xl border border-outline-variant detail-thumb bg-surface-container"></div>
+    <div class="hidden md:block md:col-span-2 relative overflow-hidden rounded-xl border border-outline-variant detail-thumb detail-thumb-last bg-surface-container">
+      <button class="absolute bottom-4 right-4 custom-glass px-4 py-2 rounded-full border border-outline-variant text-label-md flex items-center gap-2" type="button">
+        <span class="material-symbols-outlined">grid_view</span>
+        Tüm Fotoğraflar
+      </button>
+    </div>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+    <!-- Left Column: Details (8 cols) -->
+    <div class="lg:col-span-8">
+
+      <!-- Title + Location + Specs -->
+      <div class="mb-8">
+        <h1 class="font-headline-lg text-headline-lg mb-2" data-detail-title></h1>
+        <div class="flex items-center gap-2 text-on-surface-variant mb-6">
+          <span class="material-symbols-outlined text-secondary">location_on</span>
+          <span class="text-body-md" data-detail-location></span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <div class="bg-surface-container px-4 py-2 rounded-xl flex items-center gap-2 border border-outline-variant">
+            <span class="material-symbols-outlined text-primary">square_foot</span>
+            <span class="font-label-md text-on-surface" data-detail-area></span>
           </div>
-          <div class="detail-thumb"></div>
-          <div class="detail-thumb"></div>
-          <div class="detail-thumb detail-thumb-last">
-            <button class="detail-gallery-all-btn" type="button">
-              <span class="material-symbols-outlined">grid_view</span>
-              Tüm Fotoğraflar
-            </button>
+          <div class="bg-surface-container px-4 py-2 rounded-xl flex items-center gap-2 border border-outline-variant">
+            <span class="material-symbols-outlined text-primary">bed</span>
+            <span class="font-label-md text-on-surface" data-detail-rooms></span>
+          </div>
+          <div class="bg-surface-container px-4 py-2 rounded-xl flex items-center gap-2 border border-outline-variant">
+            <span class="material-symbols-outlined text-primary">bathtub</span>
+            <span class="font-label-md text-on-surface" data-detail-bathrooms></span>
           </div>
         </div>
+      </div>
 
-        <section class="detail-content-card detail-heading-card">
-          <h1 class="detail-title" data-detail-title></h1>
-          <p class="detail-meta">
-            <span class="material-symbols-outlined">location_on</span>
-            <span data-detail-location></span>
-          </p>
-          <div class="detail-feature-chips">
-            <span class="detail-feature-chip">
-              <span class="material-symbols-outlined">square_foot</span>
-              <strong data-detail-area></strong>
-            </span>
-            <span class="detail-feature-chip">
-              <span class="material-symbols-outlined">bed</span>
-              <strong data-detail-rooms></strong>
-              <span>Oda</span>
-            </span>
-            <span class="detail-feature-chip">
-              <span class="material-symbols-outlined">bathtub</span>
-              <strong data-detail-bathrooms></strong>
-              <span>Banyo</span>
-            </span>
-          </div>
-        </section>
+      <!-- Features -->
+      <div class="mb-12">
+        <h2 class="font-headline-md text-headline-md mb-6">Mülk Özellikleri</h2>
+        <ul class="detail-check-list detail-check-list--cols" data-detail-summary></ul>
+      </div>
 
-        <section class="detail-content-card">
-          <h2>Mülk Özellikleri</h2>
-          <ul class="detail-check-list detail-check-list--cols" data-detail-summary></ul>
-        </section>
+      <!-- Description -->
+      <div class="mb-12">
+        <h2 class="font-headline-md text-headline-md mb-6">Açıklama</h2>
+        <p class="text-body-md text-on-surface-variant leading-relaxed" data-detail-description></p>
+      </div>
 
-        <section class="detail-content-card">
-          <h2>Açıklama</h2>
-          <p class="muted" data-detail-description></p>
-        </section>
-
-        <section class="detail-content-card detail-map-card">
-          <div>
-            <h2>Konum</h2>
-            <p class="muted" data-detail-location-note></p>
-          </div>
-          <a class="button secondary" data-map-link href="#" target="_blank" rel="noopener noreferrer">
+      <!-- Map / Location Note -->
+      <div class="mb-12">
+        <h2 class="font-headline-md text-headline-md mb-6">Konum</h2>
+        <div class="bg-surface rounded-2xl border border-outline-variant p-6">
+          <p class="text-body-md text-on-surface-variant mb-4" data-detail-location-note></p>
+          <a class="inline-flex items-center gap-2 bg-surface-container text-primary px-5 py-3 rounded-lg font-label-md hover:bg-surface-container-high transition-all border border-outline-variant" data-map-link href="#" target="_blank" rel="noopener noreferrer">
             <span class="material-symbols-outlined">map</span>
             Haritada Aç
           </a>
-        </section>
-      </article>
+        </div>
+      </div>
 
-      <aside class="sidebar">
-        <div class="sidebar-card detail-price-card">
-          <p class="muted">Satış Fiyatı</p>
-          <p class="price" data-detail-price></p>
-          <div class="sidebar-actions">
-            <a class="button" data-call-link href="#">
-              <span class="material-symbols-outlined">call</span>
+    </div>
+
+    <!-- Right Column: Sidebar (4 cols) -->
+    <div class="lg:col-span-4">
+      <div class="sticky top-28 space-y-gutter">
+
+        <!-- Price Card -->
+        <div class="bg-surface-container-low p-8 rounded-2xl border border-outline-variant shadow-sm">
+          <div class="text-on-surface-variant text-label-md mb-1 uppercase tracking-wider">Satış Fiyatı</div>
+          <div class="text-headline-lg font-headline-lg text-primary mb-6" data-detail-price></div>
+          <div class="space-y-3">
+            <a class="w-full bg-secondary text-primary py-4 rounded-xl font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all font-bold" data-call-link href="#">
+              <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">call</span>
               Hemen Ara
             </a>
-            <a class="button detail-btn-whatsapp" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">
+            <a class="w-full bg-[#25D366] text-white py-4 rounded-xl font-label-md flex items-center justify-center gap-2 hover:opacity-90 transition-all" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">
               WhatsApp ile Bilgi Al
             </a>
-            <a class="button secondary" href="contact.html">
+            <a class="w-full bg-surface-container-highest text-primary py-4 rounded-xl font-label-md border border-outline-variant hover:bg-surface-container-high transition-all flex items-center justify-center gap-2" href="contact.html">
               <span class="material-symbols-outlined">event</span>
               Randevu Oluştur
             </a>
           </div>
         </div>
 
-        <div class="sidebar-card agent">
-          <div class="agent-avatar">
-            <img data-site-setting-image="agentPhoto" src="" alt="" />
-            <span>LK</span>
-          </div>
+        <!-- Agent Card -->
+        <div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant flex items-center gap-4">
+          <img alt="" class="w-16 h-16 rounded-full object-cover border-2 border-secondary" data-site-setting-image="agentPhoto" src="" />
           <div>
-            <strong data-site-setting="agentName">Leyla Kanat</strong>
-            <p class="muted" data-site-setting="agentTitle">Gayrimenkul Danışmanı</p>
-            <div class="agent-stars" aria-label="5 üzerinden 5 yıldız">
-              <span class="material-symbols-outlined">star</span>
-              <span class="material-symbols-outlined">star</span>
-              <span class="material-symbols-outlined">star</span>
-              <span class="material-symbols-outlined">star</span>
-              <span class="material-symbols-outlined">star</span>
+            <div class="font-label-md text-on-surface" data-site-setting="agentName"></div>
+            <div class="text-on-surface-variant text-sm" data-site-setting="agentTitle"></div>
+            <div class="flex gap-0.5 mt-1">
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings:'FILL' 1;">star</span>
             </div>
           </div>
         </div>
-      </aside>
-    </div>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="logo" href="index.html">EstateBridge</a>
-        <p class="muted">Hayalinizdeki eve giden köprü. Profesyonel danışmanlık ve şeffaf süreç yönetimi ile emlak sektöründe güvenin adresi.</p>
-        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
-      </div>
-      <div class="footer-links">
-        <a class="muted" href="#">Gizlilik Politikası</a>
-        <a class="muted" href="#">Kullanım Koşulları</a>
-        <a class="muted" href="#">Erişilebilirlik</a>
-        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
-        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
-        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
       </div>
     </div>
-  </footer>
 
-  <script src="script.js?v=3"></script>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-brand-navy border-t border-white/10">
+  <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto flex items-center justify-between gap-4">
+    <div class="flex gap-2">
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Konum">
+        <span class="material-symbols-outlined" style="font-size:18px;">location_on</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-call-link href="#" aria-label="Ara">
+        <span class="material-symbols-outlined" style="font-size:18px;">call</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="material-symbols-outlined" style="font-size:18px;">alternate_email</span>
+      </a>
+    </div>
+    <p class="text-white/35 text-sm">© 2025 Likya World Gayrimenkul</p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center" role="dialog" aria-modal="true" aria-label="Fotoğraf Galerisi">
+
+  <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all" aria-label="Kapat">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+
+  <div id="lightbox-counter" class="absolute top-5 left-1/2 -translate-x-1/2 text-white/50 text-sm font-medium tabular-nums pointer-events-none"></div>
+
+  <button id="lightbox-prev" onclick="lightboxNavigate(-1)" class="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all" aria-label="Önceki">
+    <span class="material-symbols-outlined" style="font-size:32px;">chevron_left</span>
+  </button>
+
+  <div class="w-full h-full flex items-center justify-center px-16 md:px-20 pb-28 pt-14">
+    <img id="lightbox-img" class="max-w-full max-h-full object-contain select-none" src="" alt="" draggable="false" />
+  </div>
+
+  <button id="lightbox-next" onclick="lightboxNavigate(1)" class="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-white transition-all" aria-label="Sonraki">
+    <span class="material-symbols-outlined" style="font-size:32px;">chevron_right</span>
+  </button>
+
+  <div id="lightbox-thumbs" class="absolute bottom-0 left-0 right-0 flex gap-2 px-4 py-3 overflow-x-auto no-scrollbar bg-gradient-to-t from-black/70 to-transparent"></div>
+</div>
+
+<script src="script.js?v=3"></script>
 </body>
 </html>

@@ -1,212 +1,294 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html class="light" lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İletişim | EstateBridge</title>
-  <link rel="stylesheet" href="styles.css?v=4" />
-</head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html">EstateBridge</a>
-      <nav class="nav-links" aria-label="Ana menü">
-        <a href="index.html">Ana Sayfa</a>
-        <a href="listings.html">İlanlar</a>
-        <a href="index.html#about">Hakkımda</a>
-        <a class="active" href="contact.html">İletişim</a>
-      </nav>
-      <a class="button" data-call-link href="#">Hemen Ara</a>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- Page heading -->
-    <section class="container page-title" style="display:block; padding-bottom:0;">
-      <div class="page-title-text">
-        <h1>Bizimle İletişime Geçin</h1>
-        <p>Hayalinizdeki eve giden yolda size rehberlik etmek için buradayız. Her türlü sorunuz ve talebiniz için bize ulaşabilirsiniz.</p>
-      </div>
-    </section>
-
-    <!-- Contact section -->
-    <section class="container section" style="padding-top:40px;">
-      <div class="contact-grid">
-
-        <!-- Left: contact info -->
-        <div class="contact-info">
-          <h2><span data-site-setting="agentName"></span> İletişim Bilgileri</h2>
-
-          <div class="contact-items">
-            <div class="contact-item">
-              <span class="material-symbols-outlined contact-icon contact-icon--primary">call</span>
-              <div>
-                <p class="contact-label">Telefon Numarası</p>
-                <a class="contact-value contact-value--accent" data-call-link data-phone-display href="#">—</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <span class="material-symbols-outlined contact-icon contact-icon--secondary">chat</span>
-              <div>
-                <p class="contact-label">WhatsApp Hattı</p>
-                <a class="contact-value contact-value--accent" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">Hemen Mesaj Gönder</a>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <span class="material-symbols-outlined contact-icon">location_on</span>
-              <div>
-                <p class="contact-label">Hizmet Bölgemiz</p>
-                <p class="contact-value" id="contact-service-area">İstanbul, Beşiktaş ve Çevresi</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="contact-office-image">
-            <img
-              data-site-setting-image="agentPhoto"
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=60"
-              alt="Danışman"
-              loading="lazy"
-            />
-            <p class="contact-office-caption">Gayrimenkul yolculuğunuzda size eşlik etmekten mutluluk duyarım.</p>
-          </div>
-        </div>
-
-        <!-- Right: contact form -->
-        <div class="contact-form-wrap">
-          <h3>Bize Yazın</h3>
-          <p class="muted" style="margin-bottom:24px;">Size en kısa sürede dönüş yapacağız.</p>
-
-          <form class="contact-form" id="contact-form" novalidate>
-            <div class="form-group">
-              <label class="form-label" for="contact-name">Ad Soyad</label>
-              <input
-                class="form-input"
-                id="contact-name"
-                name="name"
-                type="text"
-                placeholder="Örn: Ahmet Yılmaz"
-                required
-                autocomplete="name"
-              />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-phone">Telefon Numarası</label>
-              <input
-                class="form-input"
-                id="contact-phone"
-                name="phone"
-                type="tel"
-                placeholder="05XX XXX XX XX"
-                required
-                autocomplete="tel"
-              />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="contact-message">Mesajınız</label>
-              <textarea
-                class="form-input"
-                id="contact-message"
-                name="message"
-                rows="5"
-                placeholder="Size nasıl yardımcı olabiliriz?"
-                required
-              ></textarea>
-            </div>
-
-            <button class="button" type="submit" id="contact-submit">
-              Gönder
-              <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-left:4px;">send</span>
-            </button>
-
-            <p class="form-success" id="form-success" style="display:none;color:green;margin-top:16px;font-weight:600;">
-              Mesajınız iletildi. En kısa sürede dönüş yapacağız.
-            </p>
-            <p class="form-error" id="form-error" style="display:none;color:red;margin-top:16px;font-weight:600;">
-              Bir hata oluştu. Lütfen tekrar deneyin.
-            </p>
-          </form>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Service area map -->
-    <section class="container section alt" style="margin-top:0;">
-      <div class="section-title">
-        <h2>Hizmet Bölgemiz</h2>
-        <p>Uzman ekibimizle İstanbul'un seçkin semtlerinde profesyonel gayrimenkul danışmanlığı sunuyoruz.</p>
-      </div>
-
-      <div class="map-container">
-        <div class="map-placeholder" id="map-placeholder">
-          <span class="material-symbols-outlined map-icon">map</span>
-        </div>
-        <div class="map-info">
-          <h4>Merkez Ofis &amp; Odak Bölge</h4>
-          <p class="muted">İstanbul Avrupa Yakası geneli, özellikle Beşiktaş, Levent ve Nişantaşı bölgelerinde uzmanlaştık.</p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="logo" href="index.html">EstateBridge</a>
-        <p class="muted">Profesyonel gayrimenkul danışmanlığı ile hayallerinizdeki eve giden en güvenilir yol.</p>
-        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
-      </div>
-      <div class="footer-links">
-        <a class="muted" href="#">Gizlilik Politikası</a>
-        <a class="muted" href="#">Kullanım Koşulları</a>
-        <a class="muted" href="#">Erişilebilirlik</a>
-        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
-        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
-        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js?v=3"></script>
-  <script>
-    // Contact form submit
-    document.getElementById("contact-form")?.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById("contact-submit");
-      const successEl = document.getElementById("form-success");
-      const errorEl = document.getElementById("form-error");
-      successEl.style.display = "none";
-      errorEl.style.display = "none";
-      btn.disabled = true;
-      btn.textContent = "Gönderiliyor…";
-
-      try {
-        const res = await fetch("/api/leads", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: document.getElementById("contact-name").value,
-            phone: document.getElementById("contact-phone").value,
-            message: document.getElementById("contact-message").value,
-          }),
-        });
-        if (!res.ok) throw new Error("API error");
-        successEl.style.display = "block";
-        e.target.reset();
-      } catch {
-        errorEl.style.display = "block";
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = 'Gönder <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-left:4px;">send</span>';
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>İletişim | Likya World Gayrimenkul</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#f1e3c2",
+            "primary-fixed": "#d2e4ff",
+            "primary-container": "#15406a",
+            "surface-container-low": "#f8f9fb",
+            "on-secondary-fixed-variant": "#856a2e",
+            "inverse-on-surface": "#ecf1ff",
+            "on-tertiary-fixed": "#161c22",
+            "background": "#f9f9ff",
+            "on-primary-fixed": "#001c37",
+            "outline-variant": "#c3c6d0",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#87acdc",
+            "tertiary-fixed": "#dde3eb",
+            "tertiary-fixed-dim": "#c1c7cf",
+            "surface": "#ffffff",
+            "surface-container-highest": "#e8eaf0",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "inverse-primary": "#a4c9fb",
+            "on-secondary-fixed": "#3d3011",
+            "on-primary-fixed-variant": "#204873",
+            "outline": "#73777f",
+            "error-container": "#ffdad6",
+            "primary": "#121e31",
+            "primary-fixed-dim": "#a4c9fb",
+            "on-surface-variant": "#42474e",
+            "tertiary": "#23292f",
+            "surface-dim": "#cfdaf2",
+            "secondary": "#c4a45a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "tertiary-container": "#393f45",
+            "secondary-container": "#c4a45a",
+            "surface-container": "#f0f2f7",
+            "surface-container-high": "#e1e4ed",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#41474e",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#c4a45a",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "on-surface": "#111c2d",
+            "on-tertiary-container": "#a4aab2",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#d6bc82"
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+          spacing: { "margin-desktop": "48px", "base": "8px", "gutter": "24px", "margin-mobile": "20px", "container-max": "1200px" },
+          fontFamily: {
+            "body-lg": ["Atkinson Hyperlegible Next"], "label-md": ["Atkinson Hyperlegible Next"],
+            "body-md": ["Atkinson Hyperlegible Next"], "headline-lg": ["Atkinson Hyperlegible Next"],
+            "headline-lg-mobile": ["Atkinson Hyperlegible Next"], "headline-md": ["Atkinson Hyperlegible Next"]
+          },
+          fontSize: {
+            "body-lg": ["20px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "label-md": ["16px", {"lineHeight":"1.4","letterSpacing":"0.02em","fontWeight":"600"}],
+            "body-md": ["18px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "headline-lg": ["36px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-lg-mobile": ["28px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-md": ["24px", {"lineHeight":"1.3","fontWeight":"700"}]
+          }
+        }
       }
-    });
+    }
   </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; vertical-align: middle; }
+    body { font-family: 'Atkinson Hyperlegible Next', sans-serif; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    .bg-brand-navy { background-color: #121e31; }
+  </style>
+</head>
+<body class="bg-background text-on-surface">
+
+<!-- Nav -->
+<header class="w-full top-0 sticky bg-brand-navy border-b border-white/10 z-50">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center">
+      <img alt="Likya World Gayrimenkul Logo" class="h-16 w-auto object-contain" src="assets/logo.png"/>
+    </a>
+    <nav class="hidden md:flex gap-8 items-center">
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html">Ana Sayfa</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="listings.html">İlanlar</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html#about">Hakkımda</a>
+      <a class="text-secondary border-b-2 border-secondary font-bold text-body-md" href="contact.html">İletişim</a>
+    </nav>
+    <a class="bg-secondary text-primary px-6 py-3 rounded-full font-label-md hover:bg-white transition-all active:opacity-80 inline-flex items-center justify-center" data-call-link href="#">
+      Hemen Ara
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24 bg-brand-navy">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="max-w-2xl">
+        <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-white mb-6">
+          <span data-site-setting="agentName">Leyla Kanat</span> ile İletişime Geçin
+        </h1>
+        <p class="text-body-lg text-white/80">Gayrimenkul dünyasına taze bir soluk ve bitmeyen bir enerjiyle adım atan danışmanımız, hayalinizdeki eve giden yolda size özel çözümler sunmak için burada. Profesyonel ve dinamik bir yaklaşımla her adımda yanınızdayız.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Contact Grid -->
+  <section class="py-12 md:py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+      <!-- Left: Contact Info (5 cols) -->
+      <div class="lg:col-span-5 space-y-12">
+        <div>
+          <h2 class="font-headline-md text-headline-md text-primary mb-8">
+            <span data-site-setting="agentName">Leyla Kanat</span> İletişim Bilgileri
+          </h2>
+          <div class="space-y-8">
+
+            <!-- Phone -->
+            <div class="flex items-start gap-4">
+              <div class="bg-secondary/10 text-secondary p-3 rounded-xl flex-shrink-0">
+                <span class="material-symbols-outlined text-3xl">call</span>
+              </div>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface-variant mb-1">Telefon Numarası</p>
+                <a class="font-headline-md text-headline-md text-primary hover:text-secondary transition-colors" data-call-link data-phone-display href="#">—</a>
+              </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="flex items-start gap-4">
+              <div class="bg-[#25D366]/10 text-[#25D366] p-3 rounded-xl flex-shrink-0">
+                <span class="material-symbols-outlined text-3xl">chat</span>
+              </div>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface-variant mb-1">WhatsApp Hattı</p>
+                <a class="font-headline-md text-headline-md text-primary hover:text-secondary hover:underline transition-all" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">Hemen Mesaj Gönder</a>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4">
+              <div class="bg-surface-variant text-on-surface-variant p-3 rounded-xl flex-shrink-0">
+                <span class="material-symbols-outlined text-3xl">location_on</span>
+              </div>
+              <div>
+                <p class="font-label-md text-label-md text-on-surface-variant mb-1">Hizmet Bölgemiz</p>
+                <p class="font-body-lg text-body-lg text-on-surface" id="contact-service-area">İstanbul, Beşiktaş ve Çevresi</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Agent Photo Card -->
+        <div class="relative overflow-hidden rounded-xl h-64 border border-outline-variant group shadow-lg">
+          <img
+            data-site-setting-image="agentPhoto"
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=60"
+            alt="Danışman"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute inset-0 bg-primary/30 flex items-end p-8 backdrop-blur-[2px]">
+            <p class="text-white font-headline-md leading-tight">Gayrimenkul yolculuğunuzda size eşlik etmekten mutluluk duyarım.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Contact Form (7 cols) -->
+      <div class="lg:col-span-7 bg-white p-8 md:p-12 rounded-xl border-t-4 border-t-secondary border border-outline-variant shadow-lg">
+        <h3 class="font-headline-md text-headline-md text-primary mb-2">Bize Yazın</h3>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-8">Size en kısa sürede dönüş yapacağız.</p>
+
+        <form class="space-y-6" id="contact-form" novalidate>
+          <div>
+            <label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="contact-name">Ad Soyad</label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-2 focus:border-secondary outline-none transition-all font-body-md bg-white"
+              id="contact-name" name="name" type="text"
+              placeholder="Örn: Ahmet Yılmaz" required autocomplete="name"
+            />
+          </div>
+
+          <div>
+            <label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="contact-phone">Telefon Numarası</label>
+            <input
+              class="w-full h-12 px-4 rounded-lg border border-outline-variant focus:border-2 focus:border-secondary outline-none transition-all font-body-md bg-white"
+              id="contact-phone" name="phone" type="tel"
+              placeholder="05XX XXX XX XX" required autocomplete="tel"
+            />
+          </div>
+
+          <div>
+            <label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="contact-message">Mesajınız</label>
+            <textarea
+              class="w-full p-4 rounded-lg border border-outline-variant focus:border-2 focus:border-secondary outline-none transition-all font-body-md bg-white resize-none"
+              id="contact-message" name="message" rows="5"
+              placeholder="Size nasıl yardımcı olabiliriz?" required
+            ></textarea>
+          </div>
+
+          <button
+            class="w-full bg-primary text-on-primary py-4 rounded-lg font-label-md hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group shadow-md"
+            type="submit" id="contact-submit"
+          >
+            Gönder
+            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" style="font-size:18px;">send</span>
+          </button>
+
+          <p class="hidden text-green-700 font-semibold text-center p-4 bg-green-50 rounded-lg" id="form-success">
+            Mesajınız iletildi. En kısa sürede dönüş yapacağız.
+          </p>
+          <p class="hidden text-red-600 font-semibold text-center p-4 bg-red-50 rounded-lg" id="form-error">
+            Bir hata oluştu. Lütfen tekrar deneyin.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-brand-navy border-t border-white/10">
+  <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto flex items-center justify-between gap-4">
+    <div class="flex gap-2">
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Konum">
+        <span class="material-symbols-outlined" style="font-size:18px;">location_on</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-call-link href="#" aria-label="Ara">
+        <span class="material-symbols-outlined" style="font-size:18px;">call</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="material-symbols-outlined" style="font-size:18px;">alternate_email</span>
+      </a>
+    </div>
+    <p class="text-white/35 text-sm">© 2025 Likya World Gayrimenkul</p>
+  </div>
+</footer>
+
+<script src="script.js?v=3"></script>
+<script>
+  document.getElementById("contact-form")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("contact-submit");
+    const successEl = document.getElementById("form-success");
+    const errorEl = document.getElementById("form-error");
+    successEl.classList.add("hidden");
+    errorEl.classList.add("hidden");
+    btn.disabled = true;
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:18px;">progress_activity</span> Gönderiliyor…';
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("contact-name").value,
+          phone: document.getElementById("contact-phone").value,
+          message: document.getElementById("contact-message").value,
+        }),
+      });
+      if (!res.ok) throw new Error("API error");
+      successEl.classList.remove("hidden");
+      e.target.reset();
+    } catch {
+      errorEl.classList.remove("hidden");
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Gönder <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;margin-left:4px;">send</span>';
+    }
+  });
+</script>
 </body>
 </html>

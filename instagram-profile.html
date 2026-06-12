@@ -16,17 +16,17 @@
     }
 
     :root {
-      --primary: #15406A;
-      --primary-deep: #001c37;
-      --secondary: #407BFF;
-      --secondary-light: #89a8ff;
+      --primary: #121e31;
+      --primary-deep: #0a1220;
+      --secondary: #c4a45a;
+      --secondary-light: #d6bc82;
       --neutral: #1E293B;
       --text-primary: #ffffff;
-      --text-muted: #a4c9fb;
+      --text-muted: rgba(255, 255, 255, 0.6);
       --card-bg: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(164, 201, 251, 0.15);
-      --gold: #F5C842;
-      --gold-dim: rgba(245, 200, 66, 0.15);
+      --card-border: rgba(196, 164, 90, 0.2);
+      --gold: #c4a45a;
+      --gold-dim: rgba(196, 164, 90, 0.15);
     }
 
     html {
@@ -50,9 +50,9 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(64, 123, 255, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(196, 164, 90, 0.18) 0%, transparent 60%),
         radial-gradient(ellipse 50% 40% at 80% 80%, rgba(21, 64, 106, 0.6) 0%, transparent 60%),
-        linear-gradient(180deg, #001c37 0%, #0a1628 50%, #050e1d 100%);
+        linear-gradient(180deg, #0a1220 0%, #0d1829 50%, #060f1a 100%);
       z-index: -1;
     }
 
@@ -63,7 +63,7 @@
       width: 400px;
       height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(64, 123, 255, 0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(196, 164, 90, 0.1) 0%, transparent 70%);
       top: -100px;
       left: 50%;
       transform: translateX(-50%);
@@ -88,12 +88,10 @@
       animation: fadeDown 0.6s ease forwards 0.1s;
     }
 
-    .nav-brand {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      text-transform: uppercase;
+    .nav-brand-logo {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
     }
 
     .nav-cta {
@@ -101,7 +99,7 @@
       align-items: center;
       gap: 6px;
       background: var(--secondary);
-      color: #fff;
+      color: var(--primary);
       border: none;
       border-radius: 50px;
       padding: 8px 16px;
@@ -114,7 +112,7 @@
     }
 
     .nav-cta:hover {
-      background: #5d8bff;
+      background: #d6bc82;
       transform: scale(1.03);
     }
 
@@ -148,7 +146,7 @@
       position: absolute;
       inset: -4px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--secondary), #89a8ff, var(--gold));
+      background: linear-gradient(135deg, var(--secondary), #d6bc82, var(--gold));
       z-index: 0;
       animation: ringRotate 6s linear infinite;
     }
@@ -165,7 +163,7 @@
       height: 96px;
       border-radius: 50%;
       border: 3px solid var(--primary-deep);
-      background: linear-gradient(135deg, #204873 0%, #001c37 100%);
+      background: linear-gradient(135deg, #1a2740 0%, #0a1220 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -182,7 +180,7 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.01em;
-      color: #fff;
+      color: var(--primary);
       margin-bottom: 4px;
     }
 
@@ -209,7 +207,7 @@
       align-items: center;
       gap: 5px;
       background: var(--gold-dim);
-      border: 1px solid rgba(245, 200, 66, 0.3);
+      border: 1px solid rgba(196, 164, 90, 0.3);
       color: var(--gold);
       font-size: 11px;
       font-weight: 700;
@@ -255,10 +253,10 @@
     .link-item:nth-child(4) { animation: slideIn 0.5s ease forwards 0.75s; }
 
     .link-item:hover {
-      background: rgba(64, 123, 255, 0.12);
-      border-color: rgba(64, 123, 255, 0.4);
+      background: rgba(196, 164, 90, 0.1);
+      border-color: rgba(196, 164, 90, 0.35);
       transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(64, 123, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(196, 164, 90, 0.15);
     }
 
     .link-item:active {
@@ -275,8 +273,8 @@
       width: 42px;
       height: 42px;
       border-radius: 12px;
-      background: rgba(64, 123, 255, 0.12);
-      border: 1px solid rgba(64, 123, 255, 0.2);
+      background: rgba(196, 164, 90, 0.1);
+      border: 1px solid rgba(196, 164, 90, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -365,8 +363,8 @@
     }
 
     .social-btn:hover {
-      background: rgba(64, 123, 255, 0.15);
-      color: #fff;
+      background: rgba(196, 164, 90, 0.15);
+      color: var(--primary);
       transform: scale(1.1);
     }
 
@@ -385,43 +383,45 @@
       animation: fadeUp 0.5s ease forwards 1.05s;
     }
 
-    .footer-brand {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .footer-desc {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.3);
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .footer-links {
+    footer {
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
+      padding: 12px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .footer-links a {
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.25);
+    .footer-icons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .footer-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .footer-links a:hover {
-      color: var(--text-muted);
+    .footer-icon-btn:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+
+    .footer-icon-btn .material-icons-round {
+      font-size: 18px;
     }
 
     .footer-copy {
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.18);
-      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.35);
     }
 
     /* Animations */
@@ -453,7 +453,7 @@
 
   <!-- Navigation -->
   <nav class="nav">
-    <span class="nav-brand">EstateBridge</span>
+    <img src="assets/logo.png" alt="Likya World Gayrimenkul" class="nav-brand-logo" />
     <a href="tel:+902120000000" class="nav-cta">
       <span class="material-icons-round">call</span>
       Hemen Arayın
@@ -521,7 +521,7 @@
           </div>
           <div>
             <div class="link-text">Resmi Web Sitesini Ziyaret Et</div>
-            <div class="link-sub">EstateBridge portföyü</div>
+            <div class="link-sub">Likya World Gayrimenkul portföyü</div>
           </div>
         </div>
         <span class="material-icons-round link-arrow">arrow_forward</span>
@@ -548,13 +548,18 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-brand">EstateBridge</div>
-    <p class="footer-desc">Modern piyasada güven, şeffaflık ve sonuç odaklı kişiselleştirilmiş gayrimenkul çözümleri.</p>
-    <div class="footer-links">
-      <a href="#">Gizlilik Politikası</a>
-      <a href="#">Kullanım Koşulları</a>
+    <div class="footer-icons">
+      <a class="footer-icon-btn" id="footer-map" href="#" target="_blank" rel="noopener noreferrer" aria-label="Konum">
+        <span class="material-icons-round">location_on</span>
+      </a>
+      <a class="footer-icon-btn" id="footer-call" href="#" aria-label="Ara">
+        <span class="material-icons-round">call</span>
+      </a>
+      <a class="footer-icon-btn" id="footer-instagram" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="material-icons-round">alternate_email</span>
+      </a>
     </div>
-    <p class="footer-copy">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+    <p class="footer-copy">© 2025 Likya World Gayrimenkul</p>
   </footer>
 
   <script>
@@ -585,6 +590,7 @@
           whatsappLink.rel = 'noopener noreferrer';
           document.querySelector('.nav-cta').href = callUrl;
           document.querySelector('.social-btn[title="Telefon"]').href = callUrl;
+          document.getElementById('footer-call').href = callUrl;
         }
 
         // Instagram link
@@ -593,12 +599,14 @@
           const instagramUrl = `https://instagram.com/${encodeURIComponent(handle)}`;
           document.querySelector('.link-item.instagram').href = instagramUrl;
           document.querySelector('.social-btn[title="Instagram"]').href = instagramUrl;
+          document.getElementById('footer-instagram').href = instagramUrl;
         }
 
         // Google Maps link
         if (s.mapAddress) {
           const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.mapAddress)}`;
           document.querySelector('.social-btn[title="Konum"]').href = mapUrl;
+          document.getElementById('footer-map').href = mapUrl;
         }
       } catch (_) {
         // Notion bağlantısı yoksa statik içerik kalır

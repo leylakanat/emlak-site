@@ -3,7 +3,7 @@
 <html class="light" lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EstateBridge | Profesyonel Gayrimenkul Danışmanlığı</title>
+<title>Likya World | Gayrimenkul Danışmanlığı</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -15,11 +15,11 @@
         theme: {
           extend: {
             "colors": {
-                    "secondary-fixed": "#dae2ff",
+                    "secondary-fixed": "#f1e3c2",
                     "primary-fixed": "#d2e4ff",
                     "primary-container": "#15406a",
-                    "surface-container-low": "#f0f3ff",
-                    "on-secondary-fixed-variant": "#003fa3",
+                    "surface-container-low": "#f8f9fb",
+                    "on-secondary-fixed-variant": "#856a2e",
                     "inverse-on-surface": "#ecf1ff",
                     "on-tertiary-fixed": "#161c22",
                     "background": "#f9f9ff",
@@ -29,39 +29,39 @@
                     "on-primary-container": "#87acdc",
                     "tertiary-fixed": "#dde3eb",
                     "tertiary-fixed-dim": "#c1c7cf",
-                    "surface": "#f9f9ff",
-                    "surface-container-highest": "#d8e3fb",
+                    "surface": "#ffffff",
+                    "surface-container-highest": "#e8eaf0",
                     "on-primary": "#ffffff",
                     "surface-bright": "#f9f9ff",
                     "inverse-primary": "#a4c9fb",
-                    "on-secondary-fixed": "#001849",
+                    "on-secondary-fixed": "#3d3011",
                     "on-primary-fixed-variant": "#204873",
                     "outline": "#73777f",
                     "error-container": "#ffdad6",
-                    "primary": "#002a4d",
+                    "primary": "#121e31",
                     "primary-fixed-dim": "#a4c9fb",
                     "on-surface-variant": "#42474e",
                     "tertiary": "#23292f",
                     "surface-dim": "#cfdaf2",
-                    "secondary": "#0053cf",
+                    "secondary": "#c4a45a",
                     "on-background": "#111c2d",
                     "inverse-surface": "#263143",
                     "tertiary-container": "#393f45",
-                    "secondary-container": "#2c6cf0",
-                    "surface-container": "#e7eeff",
-                    "surface-container-high": "#dee8ff",
+                    "secondary-container": "#c4a45a",
+                    "surface-container": "#f0f2f7",
+                    "surface-container-high": "#e1e4ed",
                     "on-error": "#ffffff",
                     "surface-container-lowest": "#ffffff",
                     "on-tertiary-fixed-variant": "#41474e",
                     "on-tertiary": "#ffffff",
-                    "surface-tint": "#3b608c",
+                    "surface-tint": "#c4a45a",
                     "error": "#ba1a1a",
-                    "on-secondary-container": "#fefcff",
+                    "on-secondary-container": "#ffffff",
                     "surface-variant": "#d8e3fb",
                     "on-surface": "#111c2d",
                     "on-tertiary-container": "#a4aab2",
                     "on-error-container": "#93000a",
-                    "secondary-fixed-dim": "#b2c5ff"
+                    "secondary-fixed-dim": "#d6bc82"
             },
             "borderRadius": {
                     "DEFAULT": "0.125rem",
@@ -115,11 +115,11 @@
         }
         .listing-card:hover {
             transform: translateY(-4px);
-            border-color: #0053cf;
+            border-color: #c4a45a;
         }
         .hero-portrait-wrap {
             background: #ffffff;
-            border: 2px solid #0053cf;
+            border: 2px solid #c4a45a;
             border-radius: 0.5rem;
             box-shadow: 0 18px 45px rgba(17, 28, 45, 0.12);
             margin-left: auto;
@@ -152,7 +152,7 @@
             padding: 14px 16px 4px;
         }
         .hero-agent-card strong {
-            color: #002a4d;
+            color: #121e31;
             display: block;
             font-size: 18px;
             line-height: 1.25;
@@ -165,13 +165,125 @@
             margin-top: 2px;
         }
         .hero-agent-badge {
-            background: #dae2ff;
+            background: rgba(196, 164, 90, 0.15);
             border-radius: 999px;
-            color: #003fa3;
+            color: #c4a45a;
             flex: 0 0 auto;
             font-size: 13px;
             font-weight: 700;
             padding: 6px 10px;
+        }
+        .bg-brand-navy {
+            background-color: #121e31;
+        }
+        .likya-home {
+            background: #f9f9ff;
+            color: #111c2d;
+        }
+        .likya-home .site-nav-inner {
+            min-height: 76px;
+        }
+        .likya-hero {
+            background: #121e31;
+            min-height: calc(100vh - 76px);
+        }
+        .likya-eyebrow {
+            background: rgba(196, 164, 90, 0.18);
+            color: #c4a45a;
+        }
+        .likya-hero [data-site-setting="heroTitle"] {
+            color: #ffffff;
+        }
+        .likya-hero [data-site-setting="heroSubtitle"] {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .likya-home .brand-lockup span,
+        .likya-home [data-site-setting="aboutTitle"],
+        .likya-home [data-site-setting="featuredTitle"] {
+            color: #121e31;
+        }
+        .likya-home [data-site-setting="aboutParagraph1"],
+        .likya-home [data-site-setting="aboutParagraph2"],
+        .likya-home [data-site-setting="featuredSubtitle"] {
+            color: #42474e;
+        }
+        .likya-primary-action {
+            background: #c4a45a;
+            color: #121e31;
+        }
+        .likya-primary-action:hover {
+            background: #d6bc82;
+        }
+        .likya-secondary-action {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            color: #ffffff;
+        }
+        .likya-secondary-action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5) !important;
+        }
+        .likya-brand-stage {
+            background: linear-gradient(150deg, rgba(18, 30, 49, 0.97), rgba(10, 18, 32, 0.98));
+            border: 1px solid rgba(196, 164, 90, 0.4);
+            border-radius: 0.5rem;
+            box-shadow: 0 24px 70px rgba(18, 30, 49, 0.35);
+            color: #ffffff;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 430px;
+            overflow: hidden;
+            padding: 28px;
+            width: min(100%, 430px);
+        }
+        .likya-brand-mark {
+            align-items: center;
+            background: #ffffff;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: center;
+            min-height: 270px;
+            padding: 36px;
+        }
+        .likya-brand-mark img {
+            height: auto;
+            max-height: 180px;
+            object-fit: contain;
+            width: min(100%, 230px);
+        }
+        .likya-brand-copy {
+            border-top: 1px solid rgba(196, 164, 90, 0.3);
+            margin-top: 24px;
+            padding-top: 22px;
+        }
+        .likya-brand-copy strong {
+            display: block;
+            font-size: 24px;
+            line-height: 1.25;
+        }
+        .likya-brand-copy span {
+            color: rgba(255, 255, 255, 0.75);
+            display: block;
+            margin-top: 6px;
+        }
+        .likya-brand-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+        .likya-brand-chips span {
+            background: rgba(196, 164, 90, 0.15);
+            border: 1px solid rgba(196, 164, 90, 0.3);
+            border-radius: 999px;
+            color: #c4a45a;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 10px;
+        }
+        .likya-home [data-site-setting="stat1Value"],
+        .likya-home [data-site-setting="stat2Value"] {
+            color: #c4a45a;
         }
         [data-site-setting="eyebrow"] {
             min-height: 32px;
@@ -239,84 +351,77 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-background">
+<body class="likya-home bg-background text-on-background">
 <!-- TopNavBar -->
-<nav class="w-full top-0 sticky z-50 bg-surface-container-lowest border-b border-outline-variant">
-<div class="site-nav-inner flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="brand-lockup flex items-center gap-4">
-<img alt="EstateBridge Logo" class="h-10 w-10 object-contain" src="assets/logo.svg"/>
-<span class="text-headline-md font-headline-md text-primary">EstateBridge</span>
+<nav class="w-full top-0 sticky z-50 bg-brand-navy border-b border-white/10">
+<div class="site-nav-inner flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+<div class="brand-lockup flex items-center gap-3">
+<img alt="Likya World Gayrimenkul Logo" class="h-16 w-auto object-contain" src="assets/logo.png"/>
 </div>
 <div class="hidden md:flex gap-8 items-center">
-<a class="text-body-md transition-colors" data-nav-link="home" href="index.html">Ana Sayfa</a>
-<a class="text-body-md transition-colors" data-nav-link="listings" href="listings.html">İlanlar</a>
-<a class="text-body-md transition-colors" data-nav-link="about" href="#about">Hakkımda</a>
-<a class="text-body-md transition-colors" data-nav-link="contact" href="contact.html">İletişim</a>
+<a class="text-white/80 hover:text-secondary transition-colors text-body-md" data-nav-link="home" href="index.html">Ana Sayfa</a>
+<a class="text-white/80 hover:text-secondary transition-colors text-body-md" data-nav-link="listings" href="listings.html">İlanlar</a>
+<a class="text-white/80 hover:text-secondary transition-colors text-body-md" data-nav-link="about" href="#about">Hakkımda</a>
+<a class="text-white/80 hover:text-secondary transition-colors text-body-md" data-nav-link="contact" href="contact.html">İletişim</a>
 </div>
-<a class="nav-call-button bg-primary text-on-primary px-6 py-3 rounded-full font-label-md hover:bg-primary-container transition-all active:opacity-80 inline-flex items-center justify-center" data-call-link href="#" aria-label="Hemen ara">
+<a class="nav-call-button bg-secondary text-primary px-6 py-3 rounded-full font-label-md hover:bg-white transition-all active:opacity-80 inline-flex items-center justify-center" data-call-link href="#" aria-label="Hemen ara">
                 <span class="nav-call-label">Hemen Ara</span>
             </a>
 </div>
 </nav>
 <!-- Hero Section -->
-<header class="relative overflow-hidden bg-surface-container-low min-h-[70vh] flex items-center">
+<header class="likya-hero relative overflow-hidden flex items-center">
 <div class="absolute inset-0 z-0">
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-20 w-full py-20 grid md:grid-cols-2 items-center gap-12">
 <div class="max-w-2xl">
-<span class="inline-block bg-secondary-fixed text-on-secondary-fixed-variant px-4 py-1 rounded-full text-label-md mb-6" data-site-setting="eyebrow"></span>
-<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary mb-6" data-site-setting="heroTitle"></h1>
-<p class="text-body-lg text-on-surface-variant mb-10 max-w-xl" data-site-setting="heroSubtitle"></p>
+<span class="inline-block bg-secondary text-primary px-4 py-1 rounded-full text-label-md mb-6 font-bold" data-site-setting="eyebrow">Likya World Marka Entegrasyonu</span>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary mb-6" data-site-setting="heroTitle">Akdeniz yaşamını gayrimenkul danışmanlığıyla buluşturuyoruz</h1>
+<p class="text-body-lg text-on-surface-variant mb-10 max-w-xl" data-site-setting="heroSubtitle">Likya World ruhundan ilham alan seçkin portföy, doğru yatırım rehberliği ve bölgeye hakim profesyonel danışmanlıkla yeni yaşam alanınızı planlayın.</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2" href="listings.html"><span class="material-symbols-outlined">explore</span><span data-site-setting="primaryButton"></span></a>
-<a class="bg-surface-container-highest text-primary px-8 py-4 rounded-full font-label-md text-lg hover:bg-surface-variant transition-all flex items-center justify-center gap-2 border border-outline-variant" href="contact.html" data-site-setting="secondaryButton"></a>
+<a class="likya-primary-action bg-secondary text-on-secondary px-8 py-4 rounded-full font-label-md text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2" href="listings.html"><span class="material-symbols-outlined">explore</span><span data-site-setting="primaryButton">Portföyü İncele</span></a>
+<a class="bg-transparent text-white px-8 py-4 rounded-full font-label-md text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2 border-2 border-white/30" href="contact.html" data-site-setting="secondaryButton">Danışmanlık Al</a>
 </div>
-</div><div class="hero-portrait-wrap">
-<img class="w-full object-cover rounded-xl" data-site-setting-image="heroImage" alt="" width="360" height="450" decoding="async" fetchpriority="high"/>
-<div class="hero-agent-card">
-<div>
-<strong data-site-setting="agentName"></strong>
-<span data-site-setting="agentTitle"></span>
-</div>
-<div class="hero-agent-badge">Danışman</div>
-</div>
+</div><div class="relative group aspect-[3/4] max-w-sm mx-auto">
+  <div class="absolute -top-3 -left-3 w-full h-full border-2 border-secondary rounded-xl z-0 transition-transform group-hover:translate-x-1 group-hover:translate-y-1"></div>
+  <img alt="Leyla Kanat" class="w-full h-full object-cover object-[center_30%] rounded-xl relative z-10 shadow-2xl" data-site-setting-image="heroImage" src="" />
 </div>
 </div>
 </header>
 <!-- About Me Section - Asymmetric Layout -->
 <section class="scroll-mt-24 py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop" id="about">
 <div class="flex flex-col md:flex-row items-center gap-16">
-<div class="w-full max-w-3xl mx-auto"><h2 class="text-headline-md font-headline-md text-primary mb-6" data-site-setting="aboutTitle"></h2><p class="text-body-lg text-on-surface-variant mb-6" data-site-setting="aboutParagraph1"></p><p class="text-body-md text-on-surface-variant mb-8" data-site-setting="aboutParagraph2"></p><div class="grid grid-cols-2 gap-8 py-8 border-y border-outline-variant"><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat1Value"></div><div class="text-label-md text-on-surface" data-site-setting="stat1Label"></div></div><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat2Value"></div><div class="text-label-md text-on-surface" data-site-setting="stat2Label"></div></div></div></div>
+<div class="w-full max-w-3xl mx-auto"><h2 class="text-headline-md font-headline-md text-primary mb-6" data-site-setting="aboutTitle">Likya World çizgisinde seçici, sakin ve sonuç odaklı danışmanlık</h2><p class="text-body-lg text-on-surface-variant mb-6" data-site-setting="aboutParagraph1">Bölgenin yaşam ritmini, yatırım beklentilerini ve markalı proje algısını aynı masada değerlendirerek alıcı ve satıcılar için net bir yol haritası oluşturuyoruz.</p><p class="text-body-md text-on-surface-variant mb-8" data-site-setting="aboutParagraph2">Her portföy; lokasyon, değer potansiyeli, kullanım senaryosu ve pazarlama dili açısından incelenir. Amaç yalnızca ilan göstermek değil, doğru kararı daha hızlı ve güvenle aldırmaktır.</p><div class="grid grid-cols-2 gap-8 py-8 border-y border-outline-variant"><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat1Value">15+</div><div class="text-label-md text-on-surface" data-site-setting="stat1Label">Seçili Gayrimenkul</div></div><div><div class="text-secondary font-headline-lg text-3xl mb-1" data-site-setting="stat2Value">24s</div><div class="text-label-md text-on-surface" data-site-setting="stat2Label">İlk Geri Dönüş</div></div></div></div>
 </div>
 </section>
 <!-- Featured Listings Section - Bento Grid style inspired -->
-<section class="py-24 bg-surface-container-low">
+<section class="py-24 bg-surface">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="flex justify-between items-end mb-12">
 <div>
-<h2 class="text-headline-md font-headline-md text-primary mb-2" data-site-setting="featuredTitle"></h2>
-<p class="text-body-md text-on-surface-variant" data-site-setting="featuredSubtitle"></p>
+<h2 class="text-headline-md font-headline-md text-primary mb-2" data-site-setting="featuredTitle">Öne Çıkan Likya World Portföyleri</h2>
+<p class="text-body-md text-on-surface-variant" data-site-setting="featuredSubtitle">Yaşam, tatil ve yatırım dengesini birlikte kuran seçili fırsatlar.</p>
 </div>
 <a class="hidden md:flex items-center gap-2 text-secondary font-label-md hover:underline" href="listings.html">
-                    <span data-site-setting="featuredButton"></span> <span class="material-symbols-outlined">arrow_forward</span>
+                    <span data-site-setting="featuredButton">Tüm İlanları Gör</span> <span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter" id="featured-listings"></div>
 </div>
 </section>
 <!-- Call to Action Section -->
-<section class="py-24 bg-primary text-on-primary overflow-hidden relative" id="contact">
+<section class="likya-cta py-24 bg-primary text-on-primary overflow-hidden relative" id="contact">
 <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
 <span class="material-symbols-outlined text-[300px]">house</span>
 </div>
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center relative z-10">
-<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg mb-8">Gayrimenkul Yolculuğunuza Bugün Başlayın</h2>
+<h2 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg mb-8">Likya World odağında doğru mülkü birlikte seçelim</h2>
 <p class="text-body-lg mb-12 max-w-2xl mx-auto opacity-90">
-                Doğru fiyatlandırma ve profesyonel pazarlama stratejileri ile mülkünüzü en kısa sürede değerlendirelim.
+                İster yatırım ister yaşam amaçlı düşünün; beklentinizi, bütçenizi ve zaman planınızı netleştirip size uygun seçenekleri hazırlayalım.
             </p>
 <div class="flex flex-col sm:flex-row justify-center gap-6">
 <a class="bg-on-primary text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-primary-fixed transition-all shadow-xl" href="contact.html">
-                    Benimle İletişime Geçin
+                    Görüşme Planlayın
                 </a>
 <a class="bg-transparent border-2 border-on-primary text-on-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-on-primary hover:text-primary transition-all" data-whatsapp-link href="#" target="_blank" rel="noopener noreferrer">
                     WhatsApp'tan Yazın
@@ -325,27 +430,21 @@
 </div>
 </section>
 <!-- Footer -->
-<footer class="w-full bg-surface-container border-t border-outline-variant">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
-<div class="space-y-6">
-<div class="flex items-center gap-4">
-<img alt="EstateBridge Logo" class="h-8 w-8 object-contain" src="assets/logo.svg"/>
-<span class="text-headline-md font-headline-md text-primary">EstateBridge</span>
-</div>
-<p class="text-body-md text-on-surface-variant max-w-md"></p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Google Maps'te konumu aç">
-<span class="material-symbols-outlined">public</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram profilini aç">
-<span class="material-symbols-outlined">alternate_email</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" data-call-link href="#">
-<span class="material-symbols-outlined">call</span>
-</a>
-</div>
-</div>
-</div>
+<footer class="w-full bg-brand-navy border-t border-white/10">
+  <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto flex items-center justify-between gap-4">
+    <div class="flex gap-2">
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Konum">
+        <span class="material-symbols-outlined" style="font-size:18px;">location_on</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-call-link href="#" aria-label="Ara">
+        <span class="material-symbols-outlined" style="font-size:18px;">call</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="material-symbols-outlined" style="font-size:18px;">alternate_email</span>
+      </a>
+    </div>
+    <p class="text-white/35 text-sm">© 2025 Likya World Gayrimenkul</p>
+  </div>
 </footer>
 <script>
         // Micro-interactions: Intersection Observer for fade-in effect

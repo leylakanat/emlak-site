@@ -1,58 +1,151 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html class="light" lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emlak Portföyü | EstateBridge</title>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <title>Emlak Portföyü | Likya World Gayrimenkul</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#f1e3c2",
+            "primary-fixed": "#d2e4ff",
+            "primary-container": "#15406a",
+            "surface-container-low": "#f8f9fb",
+            "on-secondary-fixed-variant": "#856a2e",
+            "inverse-on-surface": "#ecf1ff",
+            "on-tertiary-fixed": "#161c22",
+            "background": "#f9f9ff",
+            "on-primary-fixed": "#001c37",
+            "outline-variant": "#c3c6d0",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#87acdc",
+            "tertiary-fixed": "#dde3eb",
+            "tertiary-fixed-dim": "#c1c7cf",
+            "surface": "#ffffff",
+            "surface-container-highest": "#e8eaf0",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f9f9ff",
+            "inverse-primary": "#a4c9fb",
+            "on-secondary-fixed": "#3d3011",
+            "on-primary-fixed-variant": "#204873",
+            "outline": "#73777f",
+            "error-container": "#ffdad6",
+            "primary": "#121e31",
+            "primary-fixed-dim": "#a4c9fb",
+            "on-surface-variant": "#42474e",
+            "tertiary": "#23292f",
+            "surface-dim": "#cfdaf2",
+            "secondary": "#c4a45a",
+            "on-background": "#111c2d",
+            "inverse-surface": "#263143",
+            "tertiary-container": "#393f45",
+            "secondary-container": "#c4a45a",
+            "surface-container": "#f0f2f7",
+            "surface-container-high": "#e1e4ed",
+            "on-error": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#41474e",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#c4a45a",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#ffffff",
+            "surface-variant": "#d8e3fb",
+            "on-surface": "#111c2d",
+            "on-tertiary-container": "#a4aab2",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#d6bc82"
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+          spacing: { "margin-desktop": "48px", "base": "8px", "gutter": "24px", "margin-mobile": "20px", "container-max": "1200px" },
+          fontFamily: {
+            "body-lg": ["Atkinson Hyperlegible Next"], "label-md": ["Atkinson Hyperlegible Next"],
+            "body-md": ["Atkinson Hyperlegible Next"], "headline-lg": ["Atkinson Hyperlegible Next"],
+            "headline-lg-mobile": ["Atkinson Hyperlegible Next"], "headline-md": ["Atkinson Hyperlegible Next"]
+          },
+          fontSize: {
+            "body-lg": ["20px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "label-md": ["16px", {"lineHeight":"1.4","letterSpacing":"0.02em","fontWeight":"600"}],
+            "body-md": ["18px", {"lineHeight":"1.6","fontWeight":"400"}],
+            "headline-lg": ["36px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-lg-mobile": ["28px", {"lineHeight":"1.2","fontWeight":"700"}],
+            "headline-md": ["24px", {"lineHeight":"1.3","fontWeight":"700"}]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    body { font-family: 'Atkinson Hyperlegible Next', sans-serif; background-color: #f9f9ff; }
+    .bg-brand-navy { background-color: #121e31; }
+  </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html">EstateBridge</a>
-      <nav class="nav-links" aria-label="Ana menü">
-        <a href="index.html">Ana Sayfa</a>
-        <a class="active" href="listings.html">İlanlar</a>
-        <a href="index.html#about">Hakkımda</a>
-        <a href="index.html#contact">İletişim</a>
-      </nav>
-      <a class="button" data-call-link href="#">Hemen Ara</a>
-    </div>
-  </header>
+<body class="flex flex-col min-h-screen text-on-surface">
 
-  <main>
-    <section class="container page-title">
-      <div class="page-title-text">
-        <h1 data-site-setting="listingsTitle"></h1>
-        <p data-site-setting="listingsSubtitle"></p>
-      </div>
-      <div class="filters" aria-label="İlan filtreleri" data-listing-filters></div>
-    </section>
+<!-- Nav -->
+<header class="bg-brand-navy sticky top-0 z-50 w-full border-b border-white/10">
+  <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+    <a href="index.html" class="flex items-center gap-2">
+      <img alt="Likya World Gayrimenkul" class="h-16 w-auto object-contain brightness-110" src="assets/logo.png"/>
+      <span class="text-headline-md font-headline-md text-white hidden sm:inline">Likya World Gayrimenkul</span>
+    </a>
+    <nav class="hidden md:flex gap-8">
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html">Ana Sayfa</a>
+      <a class="text-secondary border-b-2 border-secondary font-bold text-body-md" href="listings.html">İlanlar</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="index.html#about">Hakkımda</a>
+      <a class="text-white/80 hover:text-secondary transition-colors text-body-md" href="contact.html">İletişim</a>
+    </nav>
+    <a class="bg-secondary text-primary px-6 py-3 rounded-full font-label-md hover:bg-white transition-all active:opacity-80 shadow-lg inline-flex items-center justify-center" data-call-link href="#">
+      Hemen Ara
+    </a>
+  </div>
+</header>
 
-    <section class="container section">
-      <div class="listings-grid" id="listings-grid"></div>
-      <div class="pagination" id="listings-pagination"></div>
-    </section>
-  </main>
+<main class="flex-grow">
+  <section class="px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto">
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
+    <!-- Page Header + Filters -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12 border-b border-outline-variant pb-8">
       <div>
-        <a class="logo" href="index.html">EstateBridge</a>
-        <p class="muted" data-site-setting="footerDesc">Profesyonel gayrimenkul danışmanlığı ile mülkünüzü değerinde satın, hayalinizdeki evi güvenle bulun.</p>
-        <p class="muted" style="margin-top:8px;font-size:13px;">© 2024 EstateBridge Danışmanlık. Tüm hakları saklıdır. Lisanslı Gayrimenkul Danışmanı.</p>
+        <h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary mb-4" data-site-setting="listingsTitle">Gayrimenkul Portföyümüz</h1>
+        <p class="text-body-lg text-on-surface-variant max-w-2xl" data-site-setting="listingsSubtitle">Hayalinizdeki evi bulmanız için özenle seçilmiş en güncel ilanlarımızı keşfedin.</p>
       </div>
-      <div class="footer-links">
-        <a class="muted" href="#">Gizlilik Politikası</a>
-        <a class="muted" href="#">Kullanım Koşulları</a>
-        <a class="muted" href="#">Erişilebilirlik</a>
-        <a class="muted" data-map-link href="#" aria-label="Konum"><span class="material-symbols-outlined">location_on</span></a>
-        <a class="muted" data-call-link href="#" aria-label="Ara"><span class="material-symbols-outlined">call</span></a>
-        <a class="muted" data-instagram-link href="#" aria-label="Instagram"><span class="material-symbols-outlined">alternate_email</span></a>
-      </div>
+      <div class="flex flex-wrap gap-2" aria-label="İlan filtreleri" data-listing-filters></div>
     </div>
-  </footer>
 
-  <script src="script.js?v=3"></script>
+    <!-- Listings Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="listings-grid"></div>
+
+    <!-- Pagination -->
+    <div class="mt-16 flex justify-center" id="listings-pagination"></div>
+
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-brand-navy border-t border-white/10">
+  <div class="px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto flex items-center justify-between gap-4">
+    <div class="flex gap-2">
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-map-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Konum">
+        <span class="material-symbols-outlined" style="font-size:18px;">location_on</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-call-link href="#" aria-label="Ara">
+        <span class="material-symbols-outlined" style="font-size:18px;">call</span>
+      </a>
+      <a class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <span class="material-symbols-outlined" style="font-size:18px;">alternate_email</span>
+      </a>
+    </div>
+    <p class="text-white/35 text-sm">© 2025 Likya World Gayrimenkul</p>
+  </div>
+</footer>
+
+<script src="script.js?v=3"></script>
 </body>
 </html>

@@ -1,44 +1,105 @@
 let listings = [];
 let currentListing = null;
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(index) {
+  lightboxImages = [currentListing?.image, ...(currentListing?.gallery || [])].filter(Boolean);
+  if (!lightboxImages.length) return;
+  lightboxIndex = Math.max(0, Math.min(index, lightboxImages.length - 1));
+  renderLightbox();
+  const lb = document.getElementById("lightbox");
+  lb.classList.remove("hidden");
+  lb.classList.add("flex");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  const lb = document.getElementById("lightbox");
+  lb.classList.add("hidden");
+  lb.classList.remove("flex");
+  document.body.style.overflow = "";
+}
+
+function lightboxNavigate(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  document.getElementById("lightbox-img").src = lightboxImages[lightboxIndex];
+  document.getElementById("lightbox-img").alt = `Fotoğraf ${lightboxIndex + 1}`;
+  document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+
+  const single = lightboxImages.length <= 1;
+  document.getElementById("lightbox-prev").style.display = single ? "none" : "";
+  document.getElementById("lightbox-next").style.display = single ? "none" : "";
+
+  const thumbsEl = document.getElementById("lightbox-thumbs");
+  thumbsEl.innerHTML = lightboxImages.map((url, i) => {
+    const active = i === lightboxIndex;
+    return `<button onclick="lightboxGoTo(${i})" style="flex-shrink:0;width:60px;height:60px;border-radius:8px;overflow:hidden;border:2px solid ${active ? "#c4a45a" : "transparent"};opacity:${active ? "1" : "0.55"};transition:all 0.2s;padding:0;" aria-label="Fotoğraf ${i + 1}">
+      <img src="${url}" style="width:100%;height:100%;object-fit:cover;" alt="" loading="lazy" />
+    </button>`;
+  }).join("");
+
+  thumbsEl.children[lightboxIndex]?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+}
+
+function lightboxGoTo(index) {
+  lightboxIndex = index;
+  renderLightbox();
+}
+
+document.addEventListener("keydown", (e) => {
+  const lb = document.getElementById("lightbox");
+  if (!lb || lb.classList.contains("hidden")) return;
+  if (e.key === "ArrowLeft")  lightboxNavigate(-1);
+  if (e.key === "ArrowRight") lightboxNavigate(1);
+  if (e.key === "Escape")     closeLightbox();
+});
+
+let _touchStartX = 0;
+document.addEventListener("touchstart", (e) => { _touchStartX = e.touches[0].clientX; }, { passive: true });
+document.addEventListener("touchend", (e) => {
+  const lb = document.getElementById("lightbox");
+  if (!lb || lb.classList.contains("hidden")) return;
+  const dx = e.changedTouches[0].clientX - _touchStartX;
+  if (Math.abs(dx) > 50) lightboxNavigate(dx < 0 ? 1 : -1);
+}, { passive: true });
 
 function createListingCard(listing) {
   const cardImage = listing.imageCard || listing.image;
   const imageMarkup = cardImage
-    ? `<img src="${cardImage}" alt="${listing.title}" loading="lazy" />`
-    : `<div class="listing-image-placeholder" aria-hidden="true">
-        <span class="material-symbols-outlined">real_estate_agent</span>
+    ? `<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" src="${cardImage}" alt="${listing.title}" loading="lazy" />`
+    : `<div class="w-full h-full bg-surface-container-highest flex items-center justify-center" aria-hidden="true">
+        <span class="material-symbols-outlined text-5xl text-secondary">real_estate_agent</span>
       </div>`;
   const roomsText = listing.rooms
-    ? `<span class="feature"><span class="material-symbols-outlined">bed</span>${listing.rooms}</span>`
+    ? `<div class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-base">bed</span><span class="text-sm">${listing.rooms}</span></div>`
     : "";
-  const bathroomText =
-    !listing.bathrooms || listing.bathrooms === "-"
-      ? ""
-      : `<span class="feature"><span class="material-symbols-outlined">bathtub</span>${listing.bathrooms}</span>`;
+  const bathroomText = listing.bathrooms && listing.bathrooms !== "-"
+    ? `<div class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-base">bathtub</span><span class="text-sm">${listing.bathrooms}</span></div>`
+    : "";
   const areaText = listing.area
-    ? `<span class="feature"><span class="material-symbols-outlined">square_foot</span>${listing.area}</span>`
+    ? `<div class="flex items-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-base">square_foot</span><span class="text-sm">${listing.area}</span></div>`
     : "";
 
   return `
-    <article class="listing-card" data-category="${listing.category}">
-      <div class="listing-image">
+    <article class="group bg-white rounded-xl overflow-hidden border border-outline-variant flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-200" data-category="${listing.category}">
+      <div class="relative h-56 overflow-hidden">
         ${imageMarkup}
-        <span class="listing-status">${listing.status}</span>
+        <span class="absolute top-3 left-3 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">${listing.status}</span>
       </div>
-      <div class="listing-body">
-        <strong class="listing-price">${listing.price}</strong>
-        <h3>${listing.title}</h3>
-        <p class="listing-location">
-          <span class="material-symbols-outlined">location_on</span>
+      <div class="p-5 flex flex-col flex-grow gap-3">
+        <div class="text-secondary font-bold text-lg">${listing.price}</div>
+        <h3 class="font-bold text-on-surface leading-snug line-clamp-2">${listing.title}</h3>
+        <div class="flex items-center gap-1 text-on-surface-variant text-sm">
+          <span class="material-symbols-outlined text-base">location_on</span>
           ${listing.location}
-        </p>
-        ${listing.description ? `<p class="listing-description">${listing.description}</p>` : ""}
-        <div class="listing-features">
-          ${roomsText}
-          ${bathroomText}
-          ${areaText}
         </div>
-        <a class="card-button" href="listing-detail.html?id=${encodeURIComponent(listing.slug)}">Detayları Gör</a>
+        ${roomsText || bathroomText || areaText ? `<div class="flex gap-4 pt-2 border-t border-outline-variant">${roomsText}${bathroomText}${areaText}</div>` : ""}
+        <a class="mt-auto w-full bg-surface-container text-primary py-2.5 rounded-lg text-sm font-semibold border border-outline-variant hover:bg-primary hover:text-white transition-colors flex items-center justify-center" href="listing-detail.html?id=${encodeURIComponent(listing.slug)}">Detayları Gör</a>
       </div>
     </article>
   `;
@@ -267,20 +328,55 @@ async function renderListingDetail() {
   const listing = data.listing;
   currentListing = listing;
 
-  document.title = `${listing.title} | EstateBridge`;
+  document.title = `${listing.title} | Likya World Gayrimenkul`;
   const detailImage = detailPage.querySelector("[data-detail-image]");
   if (listing.image) {
     detailImage.src = listing.image;
     detailImage.alt = listing.title;
-    const thumbImages = listing.gallery?.length ? listing.gallery : [listing.image];
-    detailPage.querySelectorAll(".detail-thumb").forEach((thumb, index) => {
-      thumb.style.backgroundImage = `url("${thumbImages[index % thumbImages.length]}")`;
-      thumb.style.backgroundSize = "cover";
-      thumb.style.backgroundPosition = "center";
-    });
+    detailImage.style.cursor = "zoom-in";
+    detailImage.onclick = () => openLightbox(0);
+
+    const allImages = [listing.image, ...(listing.gallery || [])];
+    const galleryMain = detailPage.querySelector(".detail-gallery-main");
+    const thumbs = Array.from(detailPage.querySelectorAll(".detail-thumb"));
+
+    if (allImages.length === 1) {
+      // Tek görsel: thumbları gizle, ana görseli tam genişliğe al
+      thumbs.forEach(t => t.classList.add("!hidden"));
+      galleryMain.classList.remove("md:col-span-2");
+      galleryMain.classList.add("md:col-span-4");
+    } else {
+      galleryMain.classList.remove("md:col-span-4");
+      galleryMain.classList.add("md:col-span-2");
+      thumbs.forEach((thumb, index) => {
+        const imgIndex = index + 1;
+        if (allImages[imgIndex]) {
+          thumb.classList.remove("!hidden");
+          thumb.style.backgroundImage = `url("${allImages[imgIndex]}")`;
+          thumb.style.backgroundSize = "cover";
+          thumb.style.backgroundPosition = "center";
+          thumb.style.cursor = "zoom-in";
+          thumb.onclick = (e) => {
+            if (e.target.closest("button")) return;
+            openLightbox(imgIndex);
+          };
+        } else {
+          thumb.classList.add("!hidden");
+        }
+      });
+    }
+
+    const allPhotosBtn = detailPage.querySelector(".detail-thumb-last button");
+    if (allPhotosBtn) allPhotosBtn.onclick = () => openLightbox(0);
   } else {
     detailImage.removeAttribute("src");
     detailImage.alt = "";
+    detailImage.classList.add("hidden");
+    const galleryMain = detailPage.querySelector(".detail-gallery-main");
+    const thumbs = Array.from(detailPage.querySelectorAll(".detail-thumb"));
+    thumbs.forEach(t => t.classList.add("!hidden"));
+    galleryMain.classList.remove("md:col-span-2");
+    galleryMain.classList.add("md:col-span-4");
   }
   detailPage.querySelector("[data-detail-status]").textContent = listing.status;
   detailPage.querySelector("[data-detail-title]").textContent = listing.title;
@@ -680,7 +776,7 @@ function createContactModalMarkup() {
           <span class="material-symbols-outlined">close</span>
         </button>
         <div class="contact-modal-heading">
-          <span class="contact-modal-eyebrow">EstateBridge</span>
+          <span class="contact-modal-eyebrow">Likya World Gayrimenkul</span>
           <h2 id="contact-modal-title">Sizinle Tanışalım</h2>
           <p>Bilgilerinizi bırakın, gayrimenkul hedefiniz için en doğru adımı birlikte planlayalım.</p>
         </div>
